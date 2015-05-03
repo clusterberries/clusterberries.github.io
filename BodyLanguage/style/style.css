@@ -71,7 +71,7 @@ main {
 
 /* Text decoration */
 
-h1, h2 a, h3 a, h3, header li a, header p {
+h1, h2 a, h3 a, h3, header li a, header p, footer li {
 	font-family: CenturyGothicRegular, sans-serif;
 }
 
@@ -116,7 +116,7 @@ header a, footer a {
 h2.link a:hover, h3.link a:hover {
 	color: #e59487;
 }
-li.link a:hover {
+header a:hover, footer a:hover {
 	color: #f4b6af;
 }
 
