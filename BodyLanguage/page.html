@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script type="text/javascript" src="node_modules/html5-history-api/history.js"></script>
+    <script type="text/javascript">
+      $(function() {
+        // получаем нормальный объект Location
+
+        /*
+         * заметьте, это единственная разница при работе с данной библиотекой,
+         * так как объект window.location нельзя перезагрузить, поэтому
+         * библиотека history возвращает сформированный "location" объект внутри
+         * объекта window.history, поэтому получаем его из "history.location".
+         * Для браузеров поддерживающих "history.pushState" получаем
+         * сформированный объект "location" с обычного "window.location".
+         */
+        var location = window.history.location || window.location;
+
+        // ищем все ссылки и вешаем события на все ссылки в нашем документе
+        $(document).on('click', 'a.ajax', function() {
+          // заносим ссылку в историю
+          history.pushState(null, null, this.href);
+
+          $.ajax({  
+            url: ".." + this.href,  
+            success: function(html){  
+                $("main").html($(e).find('main').html());    
+            } 
+          }); 
+          // тут можете вызвать подгрузку данных и т.п.
+
+          // не даем выполнить действие по умолчанию
+          return false;
+        });
+
+        // вешаем событие на popstate которое срабатывает при нажатии back/forward в браузере
+        $(window).on('popstate', function(e) {
+
+          // тут можете вызвать подгрузку данных и т.п.
+
+          // просто сообщение
+          alert("Мы вернулись на страницу со ссылкой: " + location.href);
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <a class="ajax" href="/news.html">My Link</a>
+    <a class="ajax" href="/index.html">Other Link</a>
+    <main></main>
+  </body>
+</html>

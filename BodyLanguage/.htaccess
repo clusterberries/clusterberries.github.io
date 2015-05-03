@@ -1,0 +1,8 @@
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ (.*)/index\.(php|htm|html)(.*)\ HTTP/
+RewriteRule ^(.*)index\.(php|htm|html)$ %{REQUEST_URI}?%{QUERY_STRING}
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ (.*)/index\.(php|htm|html)(.*)\ HTTP/
+RewriteRule ^(.*)/index\.(php|htm|html)$ $1/ [R=301,L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !\.(gif|jpg|png|jpeg|tif|tiff|bmp|js|json|css|pdf|doc|xls|ppt|htm|html|htc|pl|txt)
+RewriteRule ^(.*)$ ?path=$1 [QSA]
