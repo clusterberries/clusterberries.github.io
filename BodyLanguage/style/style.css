@@ -1,7 +1,16 @@
 /***** GENERAL *****/
-@font-face {
+/*@font-face {
     font-family: "CenturyGothic";
     src: url("../fonts/GOTHIC.ttf");
+}*/
+@font-face {
+    font-family: "CenturyGothicRegular";
+    src: url("../fonts/CenturyGothicRegular/CenturyGothicRegular.eot");
+    src: url("../fonts/CenturyGothicRegular/CenturyGothicRegular.eot?#iefix")format("embedded-opentype"),
+	     url("../fonts/CenturyGothicRegular/CenturyGothicRegular.woff") format("woff"),
+	     url("../fonts/CenturyGothicRegular/CenturyGothicRegular.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
 }
 @font-face {
     font-family: "BookAniquaBold";
@@ -71,7 +80,7 @@ header {
 }
 
 h1, h2, h3, header a {
-	font-family: CenturyGothic, sans-serif;
+	font-family: CenturyGothicRegular, sans-serif;
 }
 
 header a {
