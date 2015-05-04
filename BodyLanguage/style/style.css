@@ -113,7 +113,7 @@ header a, footer a {
 	transition: 0.4s;
 }
 
-h2.link a:hover, h3.link a:hover {
+h2 a:hover, h3 a:hover {
 	color: #e59487;
 }
 header a:hover, footer a:hover {
@@ -136,6 +136,10 @@ header p {
 }
 header p:hover {
 	background-color: #e59487;
+}
+
+header .button {
+	cursor: pointer;
 }
 
 /** Navigation **/
@@ -201,7 +205,7 @@ nav input, .fa-bars {
 }
 
 .content .block {
-	margin-bottom: 30px;
+	margin-bottom: 40px;
 }
 
 .content .image {

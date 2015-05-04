@@ -2,18 +2,22 @@ $(document).ready(function(){
 	// получаем нормальный объект Location
 	var location = window.history.location || window.location;
 
-    $('.link a').click(function(e){ 
+    $('.link a').click(function(e) {  
+    	//если мы на той же ссылке, ничего не делаем 
+    	if (history.location.href === this.href) return;
+    	
     	// заносим ссылку в историю
 	    history.pushState(null, null, this.href); 
-
         $.ajax({  
             url: ".." + this.pathname, 
             success: function(html){  
-                $("main").html($(html).filter('main').html());  
+            	$('main').fadeOut(200, function() {
+	            	var content = $(html).filter('main').children();
+	           		$('main').empty().wrapInner(content).fadeIn(200);
+            	});
             }  
-        });  
-        // prevent default
-        return false;
+        }); 
+        e.preventDefault();
     });  
 
     $(window).on('popstate', function(e) {
