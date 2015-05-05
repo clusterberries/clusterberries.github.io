@@ -6,7 +6,7 @@
 		<link rel="stylesheet" type="text/css" href="style/html5reset-1.6.1.css">
 		<link rel="stylesheet" type="text/css" href="style/style.css">
 		<link rel="stylesheet" href="fonts/font-awesome-4.3.0/css/font-awesome.min.css">
-		<!-- <link href="style/mediaqueries.css" rel="stylesheet" type="text/css"> -->
+		<link href="style/mediaqueries.css" rel="stylesheet" type="text/css">
 	</head>
 <body>
 
@@ -14,25 +14,23 @@
 <div class="headerDiv">
 	<div>
 		<h1><span>BodyLanguage</span> - тренинги публичных выступлений</h1>
-		<p id="signIn" class="button">Вход/Регистрация</p>
+		<p id="signIn">Вход/Регистрация</p>
 	</div>
 	<nav>
-		<label><input type="checkbox" checked>
 		<i class="fa fa-bars"></i>
 		<ul>
-			<li class="link mainLink"><a href="index.html">Главная</a></li>
-			<li class="link newsLink"><a href="news.html">Новости</a></li>
-			<li class="link descriptionLink"><a href="description.html">Описание тренингов</a></li>
-			<li class="link successLink"><a href="success.html">История успеха</a></li>
-			<li class="link contactsLink"><a href="contacts.html">Контакты</a></li>
+			<li class="link"><a class="current" id="mainLink" href="index.html">Главная</a></li>
+			<li class="link"><a href="news.html" id="newsLink">Новости</a></li>
+			<li class="link"><a href="description.html" id="descriptionLink">Описание тренингов</a></li>
+			<li class="link"><a href="success.html" id="successLink">История успеха</a></li>
+			<li class="link"><a href="contacts.html" id="contactsLink">Контакты</a></li>
 		</ul>
-		</label>
 	</nav>
 </div>
 </header>
 
 <main>
-	<div class="mainImage"></div>
+	<div id="mainImg"></div>
 
 	<div class="results">
 	<div class="resultsDiv">
@@ -55,44 +53,44 @@
 	</div>
 		
 	<div class="content">
-		<h2 class="link newsLink"><a href="#">Последние новости</a></h2>
+		<h2 class="link"><a href="news.html" id="newsLink">Последние новости</a></h2>
 	 	<div class="block">
-	 		<div class="image"></div>
+	 		<div class="imageDiv"></div>
 			<article>
 				<h3 class="link"><a href="">Tile Title</a></h3>
-				<p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus non sapien at dolor accumsan maximus. Ut mattis congue aliquet. Quisque blandit libero a urna cursus consequat. Donec dapibus sit amet mi ac congue. Phasellus vehicula pellentesque nulla. Vivamus fermentum mauris ligula, a hendrerit velit aliquam id. Nam sagittis nec sem in consequat. Quisque vulputate consectetur mi quis rutrum. Suspendisse pellentesque enim nec auctor dignissim. Etiam sodales, nibh ut dignissim sagittis, dolor lacus blandit neque, nec fringilla nunc massa sit amet mi. Fusce nulla enim, semper at felis id, vehicula condimentum eros. Praesent vitae metus vestibulum, consequat ex ac, auctor lorem.</p>
+				<p class="shortText">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus non sapien at dolor accumsan maximus. Ut mattis congue aliquet. Quisque blandit libero a urna cursus consequat. Donec dapibus sit amet mi ac congue. Phasellus vehicula pellentesque nulla. Vivamus fermentum mauris ligula, a hendrerit velit aliquam id. Nam sagittis nec sem in consequat. Quisque vulputate consectetur mi quis rutrum. Suspendisse pellentesque enim nec auctor dignissim. Etiam sodales, nibh ut dignissim sagittis, dolor lacus blandit neque, nec fringilla nunc massa sit amet mi. Fusce nulla enim, semper at felis id, vehicula condimentum eros. Praesent vitae metus vestibulum, consequat ex ac, auctor lorem.</p>
 				<p class="date">01.04.2015</p>
 			</article>
 		</div>	
 		<div class="block">
-	 		<div class="image"></div>
+	 		<div class="imageDiv"></div>
 			<article>
 				<h3 class="link"><a href="">Tile Title</a></h3>
-				<p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus non sapien at dolor accumsan maximus. Ut mattis congue aliquet. Quisque blandit libero a urna cursus consequat. Donec dapibus sit amet mi ac congue. Phasellus vehicula pellentesque nulla. Vivamus fermentum mauris ligula, a hendrerit velit aliquam id. Nam sagittis nec sem in consequat. Quisque vulputate consectetur mi quis rutrum. Suspendisse pellentesque enim nec auctor dignissim. Etiam sodales, nibh ut dignissim sagittis, dolor lacus blandit neque, nec fringilla nunc massa sit amet mi. Fusce nulla enim, semper at felis id, vehicula condimentum eros. Praesent vitae metus vestibulum, consequat ex ac, auctor lorem.</p>
+				<p class="shortText">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus non sapien at dolor accumsan maximus. Ut mattis congue aliquet. Quisque blandit libero a urna cursus consequat. Donec dapibus sit amet mi ac congue. Phasellus vehicula pellentesque nulla. Vivamus fermentum mauris ligula, a hendrerit velit aliquam id. Nam sagittis nec sem in consequat. Quisque vulputate consectetur mi quis rutrum. Suspendisse pellentesque enim nec auctor dignissim. Etiam sodales, nibh ut dignissim sagittis, dolor lacus blandit neque, nec fringilla nunc massa sit amet mi. Fusce nulla enim, semper at felis id, vehicula condimentum eros. Praesent vitae metus vestibulum, consequat ex ac, auctor lorem.</p>
 				<p class="date">01.04.2015</p>
 			</article>
 		</div>	
 		<div class="block">
-	 		<div class="image"></div>
+	 		<div class="imageDiv"></div>
 			<article>
 				<h3 class="link"><a href="">Tile Title</a></h3>
-				<p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus non sapien at dolor accumsan maximus. Ut mattis congue aliquet. Quisque blandit libero a urna cursus consequat. Donec dapibus sit amet mi ac congue. Phasellus vehicula pellentesque nulla. Vivamus fermentum mauris ligula, a hendrerit velit aliquam id. Nam sagittis nec sem in consequat. Quisque vulputate consectetur mi quis rutrum. Suspendisse pellentesque enim nec auctor dignissim. Etiam sodales, nibh ut dignissim sagittis, dolor lacus blandit neque, nec fringilla nunc massa sit amet mi. Fusce nulla enim, semper at felis id, vehicula condimentum eros. Praesent vitae metus vestibulum, consequat ex ac, auctor lorem.</p>
+				<p class="shortText">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus non sapien at dolor accumsan maximus. Ut mattis congue aliquet. Quisque blandit libero a urna cursus consequat. Donec dapibus sit amet mi ac congue. Phasellus vehicula pellentesque nulla. Vivamus fermentum mauris ligula, a hendrerit velit aliquam id. Nam sagittis nec sem in consequat. Quisque vulputate consectetur mi quis rutrum. Suspendisse pellentesque enim nec auctor dignissim. Etiam sodales, nibh ut dignissim sagittis, dolor lacus blandit neque, nec fringilla nunc massa sit amet mi. Fusce nulla enim, semper at felis id, vehicula condimentum eros. Praesent vitae metus vestibulum, consequat ex ac, auctor lorem.</p>
 				<p class="date">01.04.2015</p>
 			</article>
 		</div>
 		<div class="block">
-	 		<div class="image"></div>
+	 		<div class="imageDiv"></div>
 			<article>
 				<h3 class="link"><a href="">Tile Title</a></h3>
-				<p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus non sapien at dolor accumsan maximus. Ut mattis congue aliquet. Quisque blandit libero a urna cursus consequat. Donec dapibus sit amet mi ac congue. Phasellus vehicula pellentesque nulla. Vivamus fermentum mauris ligula, a hendrerit velit aliquam id. Nam sagittis nec sem in consequat. Quisque vulputate consectetur mi quis rutrum. Suspendisse pellentesque enim nec auctor dignissim. Etiam sodales, nibh ut dignissim sagittis, dolor lacus blandit neque, nec fringilla nunc massa sit amet mi. Fusce nulla enim, semper at felis id, vehicula condimentum eros. Praesent vitae metus vestibulum, consequat ex ac, auctor lorem.</p>
+				<p class="shortText">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus non sapien at dolor accumsan maximus. Ut mattis congue aliquet. Quisque blandit libero a urna cursus consequat. Donec dapibus sit amet mi ac congue. Phasellus vehicula pellentesque nulla. Vivamus fermentum mauris ligula, a hendrerit velit aliquam id. Nam sagittis nec sem in consequat. Quisque vulputate consectetur mi quis rutrum. Suspendisse pellentesque enim nec auctor dignissim. Etiam sodales, nibh ut dignissim sagittis, dolor lacus blandit neque, nec fringilla nunc massa sit amet mi. Fusce nulla enim, semper at felis id, vehicula condimentum eros. Praesent vitae metus vestibulum, consequat ex ac, auctor lorem.</p>
 				<p class="date">01.04.2015</p>
 			</article>
 		</div>
 		<div class="block">
-	 		<div class="image"></div>
+	 		<div class="imageDiv"></div>
 			<article>
 				<h3 class="link"><a href="">Tile Title</a></h3>
-				<p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus non sapien at dolor accumsan maximus. Ut mattis congue aliquet. Quisque blandit libero a urna cursus consequat. Donec dapibus sit amet mi ac congue. Phasellus vehicula pellentesque nulla. Vivamus fermentum mauris ligula, a hendrerit velit aliquam id. Nam sagittis nec sem in consequat. Quisque vulputate consectetur mi quis rutrum. Suspendisse pellentesque enim nec auctor dignissim. Etiam sodales, nibh ut dignissim sagittis, dolor lacus blandit neque, nec fringilla nunc massa sit amet mi. Fusce nulla enim, semper at felis id, vehicula condimentum eros. Praesent vitae metus vestibulum, consequat ex ac, auctor lorem.</p>
+				<p class="shortText">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus non sapien at dolor accumsan maximus. Ut mattis congue aliquet. Quisque blandit libero a urna cursus consequat. Donec dapibus sit amet mi ac congue. Phasellus vehicula pellentesque nulla. Vivamus fermentum mauris ligula, a hendrerit velit aliquam id. Nam sagittis nec sem in consequat. Quisque vulputate consectetur mi quis rutrum. Suspendisse pellentesque enim nec auctor dignissim. Etiam sodales, nibh ut dignissim sagittis, dolor lacus blandit neque, nec fringilla nunc massa sit amet mi. Fusce nulla enim, semper at felis id, vehicula condimentum eros. Praesent vitae metus vestibulum, consequat ex ac, auctor lorem.</p>
 				<p class="date">01.04.2015</p>
 			</article>
 		</div>
@@ -102,9 +100,9 @@
 <footer>
 	<ul>
 		<li>© 2015 Alexandra Govorkova</li>
-		<li class="link contactsLink"><a href="contacts.html">Контакты</a></li>
-		<li class="link descriptionLink"><a href="description.html">Описание тренингов</a></li>
-		<li class="link successLink"><a href="success.html">История успеха</a></li>
+		<li class="link"><a href="contacts.html" id="contactsLink">Контакты</a></li>
+		<li class="link"><a href="description.html" id="descriptionLink">Описание тренингов</a></li>
+		<li class="link"><a href="success.html" id="successLink">История успеха</a></li>
 	</ul>
 </footer>
 
