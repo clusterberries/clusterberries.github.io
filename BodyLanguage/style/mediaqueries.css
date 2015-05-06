@@ -6,8 +6,10 @@
 
 }
 
-@media screen and (max-width: 940px) {
+@media screen and (max-width: 780px) {
 	.headerDiv, .resultsDiv, .content, footer ul {
 		/*width: 95%;*/
 	}
+
+	
 }

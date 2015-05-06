@@ -45,14 +45,16 @@ $(document).ready(function(){
             	el.fadeIn();
             	// hide when ckick outside the form
             	$(document).on('click', hide);
+            	// holder for registration
+            	$('.registration').click(registrationClickHolder); 
             }  
         }); 
-    });	  
+    });	 
+
+   
 
 	// open full image
-	//document.querySelectorAll('.imageOpen')
 	$('.imageOpen').on('click', imageOpenHandler);	
-//	$(document).click(function() {console.log(event.target)});
 
     $('.fa-bars').click(function() {
 
@@ -108,10 +110,25 @@ function imageOpenHandler() {
 	});
 }
 
+function registrationClickHolder() {
+	$.ajax({  
+        url: "registrationForm.html", 
+        success: function(html){ 
+        	var el = $(html).hide();
+        	$('.containerDiv').fadeOut(200, function() {
+        		$('.containerDiv').remove();
+        		$('body').append(el);
+        		el.fadeIn();
+        	});  	
+        	// hide when ckick outside the form
+        	$(document).on('click', hide);
+        }  
+    }); 
+}
+
 
 /* добавить:
 динамическая загрузка новостей
-открытие изображения
 регистрация
 несколько страниц новостей
 */

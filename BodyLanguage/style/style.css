@@ -308,6 +308,13 @@ nav .fa-bars {
 	background-color: #fff;
 }
 
+.form[name=registrationForm] input:not([type='submit']) {
+	width: 200px;
+}
+.form[name=registrationForm] input[type='submit'] {
+	margin-top: 10px;
+}
+
 .form .fa {
 	font-size: 2rem;
 	margin-right: 10px;
@@ -336,7 +343,6 @@ nav .fa-bars {
 	padding: 5px 13px;
 	border: none;
 	transition: 0.2s;
-	margin-right: 10px;
 	font-size: 0.9rem;
 }
 .form input[type='submit']:hover {
@@ -348,6 +354,7 @@ nav .fa-bars {
 	color: #972622;
 	transition: 0.2s;
 	font-size: 0.9rem;
+	margin-left: 10px;
 }
 .registration:hover {
 	color: #e59487;
