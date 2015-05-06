@@ -8,13 +8,18 @@ $(document).ready(function(){
     	if (history.location.href === this.href) {e.preventDefault(); return;}
     	// write link to history
 	    history.pushState(null, null, this.href); 
+	    setLoadingAnimation();
         $.ajax({  
             url: ".." + this.pathname, 
             success: function(html){  
+            	closeLoadingAnimation();
             	$('main').fadeOut(200, function() {
 	            	var content = $(html).filter('main').children();
 	           		$('main').empty().wrapInner(content).fadeIn(200);
+	           		// set handlers again because content is changed
+	           		$('.imageOpen').on('click', imageOpenHandler);	
             	});
+            	// change highlighted menu item
             	$('header .link a').removeClass('current');
             	$('header #' + e.target.id).addClass('current');
             }  
@@ -22,16 +27,19 @@ $(document).ready(function(){
         e.preventDefault();
     });  
 
-    // при нажатии назад или вперёд
+    // click back or forward
     $(window).on('popstate', function(e) {
       	history.location = location.href;
+      	console.log('change!');
     });
 
     // click signin/singup
     $('#signIn').click(function() {
+    	setLoadingAnimation();
     	$.ajax({  
-            url: "../loginForm.html", 
+            url: "loginForm.html", 
             success: function(html){ 
+            	closeLoadingAnimation();
             	var el = $(html).hide();
             	$('body').append(el);
             	el.fadeIn();
@@ -41,19 +49,10 @@ $(document).ready(function(){
         }); 
     });	  
 
-
 	// open full image
-	$('.imageOpen').click(function() {
-		var img = '<img src="' + event.target.dataset.url + '" class="upper">';
-		// img.classList.add('upper');
-		var el = $('<div class="background"></div><div class="containerDiv">' + img + '</div>').hide();
-		$('body').append(el);
-		event.stopPropagation();
-    	el.fadeIn(200, function() {
-	    	// hide when ckick outside the form
-	    	$(document).on('click', hide);    		
-    	});
-    });	
+	//document.querySelectorAll('.imageOpen')
+	$('.imageOpen').on('click', imageOpenHandler);	
+//	$(document).click(function() {console.log(event.target)});
 
     $('.fa-bars').click(function() {
 
@@ -75,10 +74,52 @@ function hide() {
 	}
 }
 
+function setLoadingAnimation() {
+	var balls = $('\
+		<div class="containerDiv"><div id="ballsWave">\
+			<div id="ballsWave_1" class="ballsWave"></div>\
+			<div id="ballsWave_2" class="ballsWave"></div>\
+			<div id="ballsWave_3" class="ballsWave"></div>\
+			<div id="ballsWave_4" class="ballsWave"></div>\
+			<div id="ballsWave_5" class="ballsWave"></div>\
+			<div id="ballsWave_6" class="ballsWave"></div>\
+			<div id="ballsWave_7" class="ballsWave"></div>\
+			<div id="ballsWave_8" class="ballsWave"></div>\
+		</div></div>').hide();
+	$('body').append(balls);
+	balls.fadeIn();
+}
+
+function closeLoadingAnimation() {
+	$('.containerDiv').remove();
+}
+
+// open full image
+function imageOpenHandler() {
+	setLoadingAnimation();
+	var img = '<img src="' + event.target.dataset.url + '" class="upper">';
+	var el = $('<div class="background"></div><div class="containerDiv">' + img + '</div>').hide();
+	closeLoadingAnimation();
+	$('body').append(el);
+	event.stopPropagation();
+	el.fadeIn(200, function() {
+    	// hide when ckick outside the form
+    	$(document).on('click', hide);    		
+	});
+}
+
 
 /* добавить:
 динамическая загрузка новостей
 открытие изображения
 регистрация
 несколько страниц новостей
+*/
+
+
+
+/*
+подсветка изображения, которое можно открыть
+шевелящиеся иконки
+крестик для изображения
 */
