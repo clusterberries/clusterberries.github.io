@@ -47,7 +47,15 @@
 		display: none;
 	}
 
+	footer ul {
+		flex-direction: column;
+	}
 	footer li {
-		display: block;
+		margin-bottom: 10px;
+	}
+	footer li:nth-child(1) {
+		order: 1;
+		margin-top: 10px;
+		margin-bottom: 0;
 	}
 }

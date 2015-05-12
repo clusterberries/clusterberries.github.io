@@ -24,7 +24,7 @@ $(document).ready(function(){
             	$('header #' + e.target.id).addClass('current');
 
                 if ($('.upperHeader .fa-bars').css('display') === 'block') {
-                    $('header nav').hide(1000);
+                    $('header nav').hide(500);
                 }
             }  
         }); 
@@ -45,7 +45,7 @@ $(document).ready(function(){
             success: function(html){ 
             	closeLoadingAnimation();
             	var el = $(html).hide();
-            	$('body').append(el);
+            	$('footer').after(el);
             	el.fadeIn();
             	// hide when ckick outside the form
             	$(document).on('click', hide);
@@ -60,7 +60,7 @@ $(document).ready(function(){
 
     // open or close navigation
     $('.upperHeader .fa-bars').click(function() {
-        $('header nav').toggle(1000);
+        $('header nav').toggle(500);
     });
 
 // TODO
@@ -97,7 +97,7 @@ function setLoadingAnimation() {
 			<div id="ballsWave_7" class="ballsWave"></div>\
 			<div id="ballsWave_8" class="ballsWave"></div>\
 		</div></div>').hide();
-	$('body').append(balls);
+	$('footer').after(balls);
 	balls.fadeIn();
 }
 
@@ -113,18 +113,23 @@ function imageOpenHandler() {
 	el = $('<div class="background"></div><div class="containerDiv">' + 
         img + '</div>').hide();
     closeLoadingAnimation();
-    $('body').append(el);
+    $('footer').after(el);
+    $(el[0]).fadeIn(200);
+    $(el[1]).fadeIn(200, function() {
 
-    top = el.find('img').position().top;
-    right = $(window).width() - el.find('img').css('width');
-    x = '<span class="closeImg" style="top: ' + top + 'px; right: ' + right + 'px"><i class="fa fa-times"></i></span>';
-	el.filter('.containerDiv').append($(x));
+        top = document.querySelector('img.upper').offsetTop;
+        console.log(2);
+        right = $(window).width() / 2 - el.find('img').width() / 2;
+        x = '<span class="closeImg" style="top: ' + top + 'px; right: ' + right + 'px"><i class="fa fa-times"></i></span>';
+        // debugger; 
+        $('.containerDiv img').after(x);
 
-    event.stopPropagation();
-	el.fadeIn(200, function() {
-    	// hide when ckick outside the form
-    	$(document).on('click', hide);    		
-	});    
+        // hide when ckick outside the form
+        $(document).on('click', hide); 
+        // hide when ckick on 'x'
+        $('.closeImg').on('click', hide);         
+    });   
+    // event.stopPropagation();
 }
 
 function registrationClickHolder() {
@@ -134,7 +139,7 @@ function registrationClickHolder() {
         	var el = $(html).hide();
         	$('.containerDiv').fadeOut(200, function() {
         		$('.containerDiv').remove();
-        		$('body').append(el);
+        		$('.background').after(el);
         		el.fadeIn();
         	});  	
         	// hide when ckick outside the form
@@ -154,9 +159,6 @@ function registrationClickHolder() {
 
 
 /*
-подсветка изображения, которое можно открыть
-шевелящиеся иконки
-крестик для изображения
 сделать поддержку свойств transition, animation, keyframes
 шаблон страницы новости
 */

@@ -17,12 +17,6 @@
 	line-height: 1.5;
 }
 
-main {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-}
-
 header, footer {
 	background-color: #972622;
 	width: 100%;
@@ -33,11 +27,15 @@ header {
 	height: 120px;	
 }
 
-main {
-	min-height: 500px;
-}
 
 /* Flex */
+main {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	min-height: 350px;
+}
+
 .headerDiv, .resultsDiv, .content, footer ul {
 	display: flex;
 	max-width: 1000px;
@@ -101,7 +99,7 @@ h3 {
 	color: #972622;
 }
 
-h2 a:hover, h3 a:hover {
+h2 a:hover, h3 a:hover, .upperHeader .fa-bars:hover {
 	color: #e59487;
 }
 
@@ -171,7 +169,9 @@ header .upperHeader .signIn:hover {
 	margin-top: auto;
 	margin-bottom: auto;
 	align-self: right;	
+	transition: 0.2s;
 }
+
 
 /** Navigation **/
 nav li, footer li {
@@ -181,8 +181,11 @@ nav li, footer li {
 nav li {
 	margin: 0 30px 15px 0;
 }
+footer ul {
+	padding: 20px 0;
+}
 footer li {
-	margin: 20px 30px 20px 0;
+	margin-right: 30px;
 }
 nav .signIn {
 	display: none;
@@ -260,9 +263,18 @@ nav .signIn {
 	margin-bottom: 40px;
 }
 
-/*contacts icons*/
+/*contacts*/
 .content .fa {
-	font-size: 1.5rem;
+	font-size: 1.7rem;
+	margin: 5px 7px 5px 0;
+	color: #5b0b0b;
+}
+.content .contact a {
+	font-size: 1rem;
+}
+.content .contact .bigNumbers {
+	font-size: 1.4rem;
+	margin-left: 5px;
 }
 
 /** Images **/
@@ -315,12 +327,16 @@ nav .signIn {
 .containerDiv .closeImg {
 	background-color: #000;
 	position: absolute;
-	top: 0;
-	right: 0;
+	opacity: 0.3;
+	transition: 0.2s;
+}
+.containerDiv .closeImg:hover {
+	opacity: 0.6;
 }
 .containerDiv .fa-times {
 	color: #fff;
 	font-size: 2rem;
+	padding: 1px 5px;
 }
 
 
