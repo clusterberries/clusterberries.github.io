@@ -22,6 +22,10 @@ $(document).ready(function(){
             	// change highlighted menu item
             	$('header .link a').removeClass('current');
             	$('header #' + e.target.id).addClass('current');
+
+                if ($('.upperHeader .fa-bars').css('display') === 'block') {
+                    $('header nav').hide(1000);
+                }
             }  
         }); 
         e.preventDefault();
@@ -34,7 +38,7 @@ $(document).ready(function(){
     });
 
     // click signin/singup
-    $('#signIn').click(function() {
+    $('.signIn').click(function() {
     	setLoadingAnimation();
     	$.ajax({  
             url: "loginForm.html", 
@@ -51,16 +55,21 @@ $(document).ready(function(){
         }); 
     });	 
 
-   
-
 	// open full image
 	$('.imageOpen').on('click', imageOpenHandler);	
 
-    $('.fa-bars').click(function() {
+    // open or close navigation
+    $('.upperHeader .fa-bars').click(function() {
+        $('header nav').toggle(1000);
+    });
 
+// TODO
+    $(window).resize(function() {
+        console.log("You resized the window!");
     });
             
 });  
+
 
 // hide upper layout
 function hide() {
@@ -98,16 +107,24 @@ function closeLoadingAnimation() {
 
 // open full image
 function imageOpenHandler() {
-	setLoadingAnimation();
-	var img = '<img src="' + event.target.dataset.url + '" class="upper">';
-	var el = $('<div class="background"></div><div class="containerDiv">' + img + '</div>').hide();
-	closeLoadingAnimation();
-	$('body').append(el);
-	event.stopPropagation();
+    var img, el, x, top, right;
+    setLoadingAnimation();
+	img = '<img src="' + event.target.dataset.url + '" class="upper">';
+	el = $('<div class="background"></div><div class="containerDiv">' + 
+        img + '</div>').hide();
+    closeLoadingAnimation();
+    $('body').append(el);
+
+    top = el.find('img').position().top;
+    right = $(window).width() - el.find('img').css('width');
+    x = '<span class="closeImg" style="top: ' + top + 'px; right: ' + right + 'px"><i class="fa fa-times"></i></span>';
+	el.filter('.containerDiv').append($(x));
+
+    event.stopPropagation();
 	el.fadeIn(200, function() {
     	// hide when ckick outside the form
     	$(document).on('click', hide);    		
-	});
+	});    
 }
 
 function registrationClickHolder() {
@@ -129,8 +146,9 @@ function registrationClickHolder() {
 
 /* добавить:
 динамическая загрузка новостей
-регистрация
+регистрация и вход
 несколько страниц новостей
+установить максимум воодимых символов. Мб ещё что такое надо?
 */
 
 
@@ -139,4 +157,6 @@ function registrationClickHolder() {
 подсветка изображения, которое можно открыть
 шевелящиеся иконки
 крестик для изображения
+сделать поддержку свойств transition, animation, keyframes
+шаблон страницы новости
 */

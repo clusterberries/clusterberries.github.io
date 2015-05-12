@@ -8,8 +8,46 @@
 
 @media screen and (max-width: 780px) {
 	.headerDiv, .resultsDiv, .content, footer ul {
-		/*width: 95%;*/
+		min-width: 100px;
+		width: 90%;
+	}
+	.upperHeader {
+		display: flex;
+		flex-direction: row;
 	}
 
-	
+	header {
+		height: auto;
+		padding-bottom: 20px;
+	}
+
+	header nav .signIn {
+		display: block;
+	}
+
+	header nav, header .upperHeader .signIn {
+		display: none;	
+		margin-top: 30px;
+	}
+	header ul li {
+		display: block;
+	}
+	.upperHeader .fa-bars {
+		display: block;
+		
+	}
+	h1 span {
+		line-height: 1;
+	}
+	header h1 span.logo {
+		display: block;
+		line-height: 1.5;
+	}
+	header span.hideEl {
+		display: none;
+	}
+
+	footer li {
+		display: block;
+	}
 }
