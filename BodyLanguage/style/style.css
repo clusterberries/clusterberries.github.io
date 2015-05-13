@@ -29,6 +29,7 @@ header {
 
 
 /* Flex */
+
 main {
 	display: flex;
 	flex-direction: column;
@@ -211,6 +212,10 @@ nav .signIn {
 
 .icon:hover {
 	-webkit-animation: move 0.5s infinite;
+	   -moz-animation: move 0.5s infinite;
+		-ms-animation: move 0.5s infinite;
+		 -o-animation: move 0.5s infinite;
+			animation: move 0.5s infinite;
 }
 
 .result:nth-child(2) .icon {
@@ -226,6 +231,10 @@ nav .signIn {
 
 /** Content **/
 
+.content p {
+	margin-bottom: 10px;
+}
+/*short articles*/
 .content .block {
 	margin-bottom: 40px;
 }
@@ -236,31 +245,40 @@ nav .signIn {
 	height: 200px;
 }
 
-.content div:nth-child(2) article{
-	flex-basis: 40%;
-	height: 350px;
-}
-.content div:nth-child(2) p.shortText {
-	-webkit-line-clamp: 13;
-}
-
 .content p.shortText {
 	display: block;
 	display: -webkit-box;
-	-webkit-line-clamp: 6;
+	-webkit-line-clamp: 5; /*line-clamp works only in webkits :( */
 	-webkit-box-orient: vertical;
 	overflow: hidden;
 	text-overflow: ellipsis;
 }
 
-.content p.date {
-	text-align: right;
-	margin-top: 11px;
+.content div:nth-child(2) article{
+	flex-basis: 40%;
+	height: 350px;
+}
+.content div:nth-child(2) p.shortText {
+	-webkit-line-clamp: 12;
 }
 
+.content p.date {
+	text-align: right;
+	margin-top: 15px; /*cut off text (needs for non-webkits)*/
+}
+
+/*full content*/
 .fullContent article {
-	margin-top: 20px;
 	margin-bottom: 40px;
+}
+
+.fullContent .block {
+	margin-bottom: 0;
+}
+
+.fullContent .contentText {
+	margin-left: 20px;
+	flex-basis: 60%;
 }
 
 /*contacts*/
@@ -293,6 +311,26 @@ nav .signIn {
 	background-size: cover;
 }
 
+#successImg {
+	background-image: url(../img/about_img.jpg);
+	width: 100%;
+	height: 400px;
+	background-size: cover;
+	background-position: top;
+}
+
+#successMap {
+	background-image: url(../img/map_success.png);
+	width: 100%;
+	max-width: 450px;
+	height: 300px;
+}
+
+/*column with images*/
+.fullContent .contentImgs {
+	flex-basis: 400px;
+}
+
 /*images on main page*/
 .content .imageDiv { 
 	flex-basis: 40%;
@@ -307,10 +345,10 @@ nav .signIn {
 }
 /*images in news*/
 .imageOpen {
-	background-image: url(../img/main_img.jpg);
 	background-position: center;
 	cursor: pointer;
 	transition: 0.2s;
+	margin-bottom: 20px;
 }
 .imageOpen:hover {
 	/*background-color: #fff;*/
@@ -327,7 +365,7 @@ nav .signIn {
 .containerDiv .closeImg {
 	background-color: #000;
 	position: absolute;
-	opacity: 0.3;
+	opacity: 0.1;
 	transition: 0.2s;
 }
 .containerDiv .closeImg:hover {
@@ -440,115 +478,111 @@ nav .signIn {
 	background-color: #eee;
 	width: 16px;
 	height: 16px;
-	-moz-animation-name: ballsWave;
+	-webkit-animation: ballsWave 1.3s infinite;
+	   -moz-animation: ballsWave 1.3s infinite;
+		-ms-animation: ballsWave 1.3s infinite;
+		 -o-animation: ballsWave 1.3s infinite;
+			animation: ballsWave 1.3s infinite;
+
+	/*-webkit-animation-direction: ;*/
+
+	-webkit-border-radius: 8px;
+	   -moz-border-radius: 8px;
+		-ms-border-radius: 8px;
+		 -o-border-radius: 8px;
+			border-radius: 8px;
+	
+/*	-moz-animation-name: ballsWave;
 	-moz-animation-duration: 1.3s;
 	-moz-animation-iteration-count: infinite;
 	-moz-animation-direction: normal;
-	-moz-border-radius: 8px;
-	-webkit-animation-name: ballsWave;
-	-webkit-animation-duration: 1.3s;
-	-webkit-animation-iteration-count: infinite;
-	-webkit-animation-direction: normal;
-	-webkit-border-radius: 8px;
 	-ms-animation-name: ballsWave;
 	-ms-animation-duration: 1.3s;
 	-ms-animation-iteration-count: infinite;
 	-ms-animation-direction: normal;
-	-ms-border-radius: 8px;
 	-o-animation-name: ballsWave;
 	-o-animation-duration: 1.3s;
 	-o-animation-iteration-count: infinite;
 	-o-animation-direction: normal;
-	-o-border-radius: 8px;
 	animation-name: ballsWave;
 	animation-duration: 1.3s;
 	animation-iteration-count: infinite;
-	animation-direction: normal;
-	border-radius: 8px;
+	animation-direction: normal;*/
 }
 
 #ballsWave_1{
 	left: 0;
-	-moz-animation-delay: 0.52s;
 	-webkit-animation-delay: 0.52s;
-	-ms-animation-delay: 0.52s;
-	-o-animation-delay: 0.52s;
-	animation-delay: 0.52s;
+	   -moz-animation-delay: 0.52s;
+		-ms-animation-delay: 0.52s;
+		 -o-animation-delay: 0.52s;
+			animation-delay: 0.52s;
 }
 
 #ballsWave_2{
 	left: 16px;
-	-moz-animation-delay: 0.65s;
 	-webkit-animation-delay: 0.65s;
-	-ms-animation-delay: 0.65s;
-	-o-animation-delay: 0.65s;
-	animation-delay: 0.65s;
+	   -moz-animation-delay: 0.65s;
+		-ms-animation-delay: 0.65s;
+		 -o-animation-delay: 0.65s;
+			animation-delay: 0.65s;
 }
 
 #ballsWave_3{
 	left: 32px;
-	-moz-animation-delay: 0.78s;
 	-webkit-animation-delay: 0.78s;
-	-ms-animation-delay: 0.78s;
-	-o-animation-delay: 0.78s;
-	animation-delay: 0.78s;
+	   -moz-animation-delay: 0.78s;
+		-ms-animation-delay: 0.78s;
+		 -o-animation-delay: 0.78s;
+			animation-delay: 0.78s;
 }
 
 #ballsWave_4{
 	left: 48px;
-	-moz-animation-delay: 0.91s;
 	-webkit-animation-delay: 0.91s;
-	-ms-animation-delay: 0.91s;
-	-o-animation-delay: 0.91s;
-	animation-delay: 0.91s;
+	   -moz-animation-delay: 0.91s;
+		-ms-animation-delay: 0.91s;
+		 -o-animation-delay: 0.91s;
+			animation-delay: 0.91s;
 }
 
 #ballsWave_5{
 	left: 64px;
-	-moz-animation-delay: 1.04s;
 	-webkit-animation-delay: 1.04s;
-	-ms-animation-delay: 1.04s;
-	-o-animation-delay: 1.04s;
-	animation-delay: 1.04s;
+	   -moz-animation-delay: 1.04s;
+		-ms-animation-delay: 1.04s;
+		 -o-animation-delay: 1.04s;
+			animation-delay: 1.04s;
 }
 
 #ballsWave_6{
 	left: 80px;
-	-moz-animation-delay: 1.17s;
 	-webkit-animation-delay: 1.17s;
-	-ms-animation-delay: 1.17s;
-	-o-animation-delay: 1.17s;
-	animation-delay: 1.17s;
+	   -moz-animation-delay: 1.17s;
+		-ms-animation-delay: 1.17s;
+		 -o-animation-delay: 1.17s;
+			animation-delay: 1.17s;
 }
 
 #ballsWave_7{
 	left: 96px;
-	-moz-animation-delay: 1.3s;
 	-webkit-animation-delay: 1.3s;
-	-ms-animation-delay: 1.3s;
-	-o-animation-delay: 1.3s;
-	animation-delay: 1.3s;
+	   -moz-animation-delay: 1.3s;
+		-ms-animation-delay: 1.3s;
+		 -o-animation-delay: 1.3s;
+			animation-delay: 1.3s;
 }
 
 #ballsWave_8{
 	left: 112px;
-	-moz-animation-delay: 1.43s;
 	-webkit-animation-delay: 1.43s;
-	-ms-animation-delay: 1.43s;
-	-o-animation-delay: 1.43s;
-	animation-delay: 1.43s;
+	   -moz-animation-delay: 1.43s;
+		-ms-animation-delay: 1.43s;
+		 -o-animation-delay: 1.43s;
+			animation-delay: 1.43s;
 }
 
 /* loading animation */
-@-moz-keyframes ballsWave{
-	0%{
-		background-color: #5b0b0b;
-	}
-	100%{
-		background-color: #eee;
-	}
-}
-
 @-webkit-keyframes ballsWave{
 	0%{
 		background-color: #5b0b0b;
@@ -557,7 +591,14 @@ nav .signIn {
 		background-color: #eee;
 	}
 }
-
+@-moz-keyframes ballsWave{
+	0%{
+		background-color: #5b0b0b;
+	}
+	100%{
+		background-color: #eee;
+	}
+}
 @-ms-keyframes ballsWave{
 	0%{
 		background-color: #5b0b0b;
@@ -566,7 +607,6 @@ nav .signIn {
 		background-color: #eee;
 	}
 }
-
 @-o-keyframes ballsWave{
 	0%{
 		background-color: #5b0b0b;
@@ -575,7 +615,6 @@ nav .signIn {
 		background-color: #eee;
 	}
 }
-
 @keyframes ballsWave{
 	0%{
 		background-color: #5b0b0b;
@@ -586,7 +625,6 @@ nav .signIn {
 }
 
 /** animation for icons on index page **/
-
 @-webkit-keyframes move {
 	25% {
 		transform: rotate(10deg);
@@ -598,4 +636,47 @@ nav .signIn {
 		transform: rotate(0deg);
 	}
 }
-
+@-moz-keyframes move {
+	25% {
+		transform: rotate(10deg);
+	}
+	75% {
+		transform: rotate(-10deg);
+	}
+	100% {
+		transform: rotate(0deg);
+	}
+}
+@-ms-keyframes move {
+	25% {
+		transform: rotate(10deg);
+	}
+	75% {
+		transform: rotate(-10deg);
+	}
+	100% {
+		transform: rotate(0deg);
+	}
+}
+@-o-keyframes move {
+	25% {
+		transform: rotate(10deg);
+	}
+	75% {
+		transform: rotate(-10deg);
+	}
+	100% {
+		transform: rotate(0deg);
+	}
+}
+@keyframes move {
+	25% {
+		transform: rotate(10deg);
+	}
+	75% {
+		transform: rotate(-10deg);
+	}
+	100% {
+		transform: rotate(0deg);
+	}
+}

@@ -34,7 +34,6 @@ $(document).ready(function(){
     // click back or forward
     $(window).on('popstate', function(e) {
       	history.location = location.href;
-      	console.log('change!');
     });
 
     // click signin/singup
@@ -62,11 +61,6 @@ $(document).ready(function(){
     $('.upperHeader .fa-bars').click(function() {
         $('header nav').toggle(500);
     });
-
-// TODO
-    $(window).resize(function() {
-        console.log("You resized the window!");
-    });
             
 });  
 
@@ -82,6 +76,7 @@ function hide() {
 			$('.containerDiv').remove();
 		});
 		$(document).off('click', hide);
+        $(window).off('resize', moveX);  
 	}
 }
 
@@ -116,20 +111,29 @@ function imageOpenHandler() {
     $('footer').after(el);
     $(el[0]).fadeIn(200);
     $(el[1]).fadeIn(200, function() {
-
-        top = document.querySelector('img.upper').offsetTop;
-        console.log(2);
-        right = $(window).width() / 2 - el.find('img').width() / 2;
-        x = '<span class="closeImg" style="top: ' + top + 'px; right: ' + right + 'px"><i class="fa fa-times"></i></span>';
-        // debugger; 
-        $('.containerDiv img').after(x);
-
+        $('.containerDiv img').after(calculateX()); 
         // hide when ckick outside the form
         $(document).on('click', hide); 
         // hide when ckick on 'x'
-        $('.closeImg').on('click', hide);         
+        $('.closeImg').on('click', hide);  
+        // when the window size is changing move closing 'x' 
+        $(window).on('resize', moveX);       
     });   
     // event.stopPropagation();
+}
+
+// calculate closing 'x' for image
+function calculateX() {
+    var top = document.querySelector('img.upper').offsetTop;
+    var right = $(window).width() / 2 - $('img.upper').width() / 2;
+    return '<span class="closeImg" style="top: ' + top + 'px; right: ' + right + 'px"><i class="fa fa-times"></i></span>';        
+}
+
+// handle for window resizing
+function moveX() {
+    $('.closeImg').remove();
+    $('.containerDiv img').after(calculateX()); 
+    $('.closeImg').on('click', hide);
 }
 
 function registrationClickHolder() {
