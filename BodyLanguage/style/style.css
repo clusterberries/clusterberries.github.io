@@ -43,7 +43,7 @@ main {
 }
 
 .resultsDiv {
-	-webkit-ustify-content: space-around;
+	-webkit-justify-content: space-around;
 	justify-content: space-around;
 }
 
@@ -59,7 +59,7 @@ main {
 	display: flex;
 	-webkit-flex-direction: column;
 	flex-direction: column;
-	-webkit-justify-content: flex-start;
+	-webkit-justify-content: -webkit-flex-start;
 	justify-content: flex-start;
 }
 
