@@ -24,7 +24,9 @@ $(document).ready(function(){
             	$('header #' + e.target.id).addClass('current');
 
                 if ($('.upperHeader .fa-bars').css('display') === 'block') {
-                    $('header nav').hide(500);
+                    $('header nav').hide(500, function() {
+                        $('header nav').removeAttr('style');
+                    });
                 }
             }  
         }); 
@@ -59,7 +61,10 @@ $(document).ready(function(){
 
     // open or close navigation
     $('.upperHeader .fa-bars').click(function() {
-        $('header nav').toggle(500);
+        $('header nav').toggle(500, function() {
+            if ($('header nav').css('display') === 'none')
+                $('header nav').removeAttr('style');
+        });
     });
             
 });  
@@ -157,12 +162,8 @@ function registrationClickHolder() {
 динамическая загрузка новостей
 регистрация и вход
 несколько страниц новостей
+
 установить максимум воодимых символов. Мб ещё что такое надо?
-*/
-
-
-
-/*
-сделать поддержку свойств transition, animation, keyframes
+доделать media queries
 шаблон страницы новости
 */

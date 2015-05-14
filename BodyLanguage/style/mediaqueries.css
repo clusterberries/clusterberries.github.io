@@ -1,22 +1,24 @@
 /*загрузка более большого изображения на главную*/
-/*@media media only screen and (min-width: 1400px) {
+@media screen and (min-width: 1400px) {
 
 }
 
-@media media only screen and (min-width: 780px) {
+@media screen and (min-width: 780px) {
 	header nav, header .upperHeader .signIn {
 		display: block;	
 	}
-}*/
+}
 
 
-@media only screen and (max-width: 780px) {
+@media screen and (max-width: 780px) {
 	.headerDiv, .resultsDiv, .content, footer ul {
 		min-width: 100px;
 		width: 90%;
 	}
 	.upperHeader {
+		display: -webkit-flex;
 		display: flex;
+		-webkit-flex-direction: row;
 		flex-direction: row;
 	}
 
@@ -52,6 +54,7 @@
 	}
 
 	footer ul {
+		-webkit-flex-direction: column;
 		flex-direction: column;
 	}
 	footer li {
@@ -68,6 +71,59 @@
 перестройка results на главной, 
 уменьшение высоты изображений, 
 подргузка более лёгких*/
-/*@media only screen and (max-width: 620px) {
+@media only screen and (max-width: 620px) {
+	#mainImg {
+		height: 300px;
+		background-image: url(../img/main_img_small.jpg);
+	}
 
-}*/
+	.resultsDiv {
+		-webkit-flex-direction: column;
+		flex-direction: column;
+		-webkit-align-items: center;
+		align-items: center;
+		margin: 20px auto 30px;
+	}
+	.result {
+		margin: 20px 10% 0px;
+		width: 100%;
+		max-width: 400px;
+	}
+	.content .block {
+		-webkit-flex-direction: column;
+		flex-direction: column;
+	}
+	.content .block article {
+		margin-left: 0px;
+		margin-top: 20px;
+		height: 200px;
+	}
+	.content .imageDiv { 
+		width: 100%;
+		max-width: 400px;
+	}
+	.content div:nth-child(2) .imageDiv {
+		max-width: 500px;
+	}
+	.content div:nth-child(2) article{
+		height: 200px;
+	}
+	.content div:nth-child(2) p.shortText {
+		-webkit-line-clamp: 5;
+	}
+}
+
+@media only screen and (max-width: 380px) {
+	#mainImg {
+		height: 250px;
+		background-image: url(../img/main_img_small.jpg);
+		background-size: cover;
+	}
+	h1 {
+		font-size: 0.8rem;
+	}
+
+	h1 span.logo {
+		font-size: 2rem;
+	}
+}
