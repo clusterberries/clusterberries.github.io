@@ -1,10 +1,17 @@
-$(document).ready(function(){    
-	// получаем нормальный объект Location
+$(document).ready(function(){ 
+    // set nicesscroll for document   
+    $("html").niceScroll({
+        cursorwidth: '8px', 
+        cursorcolor: '#555', 
+        cursorborder: '1px solid #aaa', 
+    });
+
+	// get object Location
 	var location = window.history.location || window.location;
 
 	// click on navigation items
     $('.link a').click(function(e) {  
-    	//если мы на той же ссылке, ничего не делаем 
+    	// if click on the same link do nothing
     	if (history.location.href === this.href) {e.preventDefault(); return;}
     	// write link to history
 	    history.pushState(null, null, this.href); 
@@ -42,7 +49,7 @@ $(document).ready(function(){
     $('.signIn').click(function() {
     	setLoadingAnimation();
     	$.ajax({  
-            url: "loginForm.html", 
+            url: "templates/loginForm.html", 
             success: function(html){ 
             	closeLoadingAnimation();
             	var el = $(html).hide();
@@ -144,7 +151,7 @@ function moveX() {
 
 function registrationClickHolder() {
 	$.ajax({  
-        url: "registrationForm.html", 
+        url: "templates/registrationForm.html", 
         success: function(html){ 
         	var el = $(html).hide();
         	$('.containerDiv').fadeOut(200, function() {

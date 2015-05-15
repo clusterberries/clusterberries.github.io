@@ -25,7 +25,7 @@ main {
 }
 
 .headerDiv, .resultsDiv, .content, footer ul {
-	/*display: -webkit-flex;*/
+	display: -webkit-flex;
 	display: 		 flex;
 	max-width: 1000px;
 	min-width: 740px;
@@ -37,9 +37,9 @@ main {
 }
 
 .headerDiv, .content {
-	/*-webkit-flex-direction: column;*/
+	-webkit-flex-direction: column;
 			flex-direction: column;
-	/*-webkit-justify-content: space-between;*/
+	-webkit-justify-content: space-between;
 			justify-content: space-between;
 }
 
@@ -49,9 +49,9 @@ main {
 }
 
 .content .block, header div {
-	/*display: -webkit-flex;*/
+	display: -webkit-flex;
 	display: 		 flex;
-	/*-webkit-justify-content: space-between;*/
+	-webkit-justify-content: space-between;
 			justify-content: space-between;
 }
 
