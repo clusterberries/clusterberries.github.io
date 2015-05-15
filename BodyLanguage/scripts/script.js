@@ -71,9 +71,10 @@ $(document).ready(function(){
 
 
 // hide upper layout
-function hide() {
+function hide(event) {
 	if ($(event.target).closest('.upper').length !== 0) return;
 	else {
+        console.log(1);
 		$('.background').fadeOut(200, function() {
 			$('.background').remove();
 		});
@@ -106,7 +107,7 @@ function closeLoadingAnimation() {
 }
 
 // open full image
-function imageOpenHandler() {
+function imageOpenHandler(event) {
     var img, el, x, top, right;
     setLoadingAnimation();
 	img = '<img src="' + event.target.dataset.url + '" class="upper">';

@@ -111,6 +111,9 @@
 	.content div:nth-child(2) p.shortText {
 		-webkit-line-clamp: 5;
 	}
+	#descriptionImg {
+		height: 330px;
+	}
 }
 
 @media only screen and (max-width: 380px) {
@@ -119,11 +122,17 @@
 		background-image: url(../img/main_img_small.jpg);
 		background-size: cover;
 	}
+	.content div:nth-child(2) .imageDiv {
+		height: 200px;
+	}
 	h1 {
 		font-size: 0.8rem;
 	}
 
 	h1 span.logo {
 		font-size: 2rem;
+	}
+	#descriptionImg {
+		height: 230px;
 	}
 }
