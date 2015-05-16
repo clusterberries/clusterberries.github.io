@@ -130,6 +130,11 @@ footer {
 	margin-top: 20px;
 }
 
+footer.down {
+	position: fixed;
+	bottom: 0;
+}
+
 
 /** Header **/
 

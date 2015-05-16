@@ -1,28 +1,53 @@
 $(document).ready(function(){ 
-    // set nicesscroll for document   
-    $("html").niceScroll({
+    var scrollOptions = {
         cursorwidth: '8px', 
         cursorcolor: '#555', 
         cursorborder: '1px solid #aaa', 
-    });
+    };
+    // set nicesscroll for document   
+    var scrollObj = $("html").niceScroll(scrollOptions);
 
 	// get object Location
 	var location = window.history.location || window.location;
+
+    // if the height of the page is small fix the footer to bottom
+    if ($(document.body).height() < $(window).height()) {
+        $('footer').addClass('down');
+    }
 
 	// click on navigation items
     $('.link a').click(function(e) {  
     	// if click on the same link do nothing
     	if (history.location.href === this.href) {e.preventDefault(); return;}
+
+        setLoadingAnimation();
+
     	// write link to history
-	    history.pushState(null, null, this.href); 
-	    setLoadingAnimation();
+        history.pushState(null, null, this.href); 
+
         $.ajax({  
             url: ".." + this.pathname, 
-            success: function(html){  
+            success: function(html) {  
+
             	closeLoadingAnimation();
+
             	$('main').fadeOut(200, function() {
 	            	var content = $(html).filter('main').children();
-	           		$('main').empty().wrapInner(content).fadeIn(200);
+	           		$('main').empty().wrapInner(content);
+                    
+                    // console.log($(document.body).height() + " + " + $('main').height() + "  " + $(window).height());
+                    // if the height of the page is small fix the footer to bottom
+                    if ($(document.body).height() + $('main').height() < $(window).height()) {
+                        $('footer').addClass('down');
+                    }
+                    else {
+                        $('footer').removeClass('down');
+                    }
+
+                    $('main').fadeIn(200, function() {
+                        // ckeck scrollbar
+                        $("html").getNiceScroll().resize();
+                    });
 	           		// set handlers again because content is changed
 	           		$('.imageOpen').on('click', imageOpenHandler);	
             	});
@@ -37,11 +62,12 @@ $(document).ready(function(){
                 }
             }  
         }); 
+
         e.preventDefault();
     });  
 
     // click back or forward
-    $(window).on('popstate', function(e) {
+    $(window).on('popstate', function() {
       	history.location = location.href;
     });
 
@@ -115,7 +141,7 @@ function closeLoadingAnimation() {
 
 // open full image
 function imageOpenHandler(event) {
-    var img, el, x, top, right;
+    var img, el;
     setLoadingAnimation();
 	img = '<img src="' + event.target.dataset.url + '" class="upper">';
 	el = $('<div class="background"></div><div class="containerDiv">' + 
@@ -132,7 +158,6 @@ function imageOpenHandler(event) {
         // when the window size is changing move closing 'x' 
         $(window).on('resize', moveX);       
     });   
-    // event.stopPropagation();
 }
 
 // calculate closing 'x' for image
@@ -171,7 +196,4 @@ function registrationClickHolder() {
 регистрация и вход
 несколько страниц новостей
 
-установить максимум воодимых символов. Мб ещё что такое надо?
-доделать media queries
-шаблон страницы новости
 */
