@@ -322,6 +322,31 @@ article ul {
 	margin-left: 30px;
 }
 
+/* pagination */
+.pagination{
+    margin: 10px 0 60px;
+    font-size: 1.1rem;
+}
+
+.pagination li{
+    list-style-type: none;
+    display: inline-block;
+    text-align: center;
+    width: 15px;
+    height: 15px;
+    color: #972622;
+    font-weight: bold;
+}
+.pagination li:hover {
+    color: #e59487;
+    cursor: pointer;
+}
+.pagination li.current {
+	cursor: default;
+	color: #e59487;
+}
+
+
 /** Images **/
 /*Main image*/
 #mainImg {
