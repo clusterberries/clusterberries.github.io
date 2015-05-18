@@ -91,7 +91,7 @@ a:hover {
 	color: #747f93;
 }
 
-h1, h1 span, h2, h3, h2 a, h3 a, header li a, header p, footer li {
+h1, h1 span, h2, h3, h4, h2 a, h3 a, header li a, header p, footer li {
 	font-family: CenturyGothicRegular, Arial, sans-serif;
 }
 
@@ -108,6 +108,12 @@ h2 {
 }
 h3 {
 	font-size: 1.4rem;
+	margin-bottom: 7px;
+	color: #972622;
+}
+
+h4 {
+	font-size: 1.2rem;
 	margin-bottom: 7px;
 	color: #972622;
 }
@@ -283,7 +289,7 @@ nav .signIn {
 	-webkit-line-clamp: 12;
 }
 
-.content p.date {
+.content article p.date {
 	text-align: right;
 	margin-top: 15px; /*cut off text (needs for non-webkits)*/
 }
@@ -423,7 +429,7 @@ nav .signIn {
 	left: 0;
 }
 
-.form {
+.containerDiv .form {
 	padding: 20px 30px;
 	background-color: #fff;
 }
@@ -478,6 +484,44 @@ nav .signIn {
 }
 .registration:hover {
 	color: #e59487;
+}
+
+
+/** Comments **/
+
+.comments {
+	width: 100%;
+	max-width: 700px;
+	margin: 40px 0;
+}
+
+.comments .comment {
+	margin: 30px 0;
+}
+.comments .nickname, .comments .date {
+	display: inline-block;
+}
+.comments .nickname {
+	color: #972622;
+	font-weight: bold;	
+}
+
+.comments .date {
+	margin-left: 20px;
+	font-size: 0.7rem;
+	color: #888;
+}
+
+.comments form textarea {
+	width: 100%;
+}
+
+.comments form {
+	margin: 20px 0;
+}
+
+.comments .form .button {
+	display: none;
 }
 
 
