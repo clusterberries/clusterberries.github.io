@@ -1,5 +1,5 @@
 $(document).ready(function(){ 
-    // set nicesscroll for document   
+    // set nicescroll for document   
     var scrollObj = $("html").niceScroll({
         cursorwidth: '8px', 
         cursorcolor: '#555', 
@@ -167,13 +167,17 @@ function closeLoadingAnimation() {
 
 // open full image
 function imageOpenHandler(event) {
-    var img, el;
+    var img, url, el;
 
     setLoadingAnimation();
 
+    // take out the url to the image from the style
+    url = getComputedStyle(event.target).backgroundImage;
+    url = url.slice(url.indexOf('(') + 1, url.lastIndexOf(')'));
+    
     // get url of the image and create the html
-	img = '<img src="' + event.target.dataset.url + '" class="upper">';
-    // create element with backbround and img
+	img = '<img src="' + url + '" class="upper">';
+    // create element with background and img
 	el = $('<div class="background"></div><div class="containerDiv">' + img + '</div>').hide();
 
     closeLoadingAnimation();
@@ -192,8 +196,9 @@ function imageOpenHandler(event) {
     });   
 }
 
-// calculate closing 'x' for image
+// calculate position of the closing 'x' for image
 function calculateX() {
+    // get top and right sides of the image and set it to the 'x'
     var top = document.querySelector('img.upper').offsetTop;
     var right = $(window).width() / 2 - $('img.upper').width() / 2;
     return '<span class="closeImg" style="top: ' + top + 'px; right: ' + right + 'px"><i class="fa fa-times"></i></span>';        
@@ -201,18 +206,24 @@ function calculateX() {
 
 // handle for window resizing
 function moveX() {
+    // remove old 'x'
     $('.closeImg').remove();
+    // calculate new values
     $('.containerDiv img').after(calculateX()); 
+    // set new handler
     $('.closeImg').on('click', hide);
 }
 
+// handler for loading the form for registration
 function registrationClickHandler() {
 	$.ajax({  
         url: "templates/registrationForm.html", 
         success: function(html){ 
         	var el = $(html).hide();
         	$('.containerDiv').fadeOut(200, function() {
+                // remove old container with form for sign in
         		$('.containerDiv').remove();
+                // set new form
         		$('.background').after(el);
         		el.fadeIn();
         	});  	
@@ -221,11 +232,3 @@ function registrationClickHandler() {
         }  
     }); 
 }
-
-
-/* добавить:
-динамическая загрузка новостей
-регистрация и вход
-несколько страниц новостей
-
-*/

@@ -317,6 +317,11 @@ nav .signIn {
 	margin-left: 5px;
 }
 
+/* general for articles */
+article ul {
+	margin-left: 30px;
+}
+
 /** Images **/
 /*Main image*/
 #mainImg {
@@ -344,12 +349,11 @@ nav .signIn {
 	background-image: url(../img/map_success.png);
 }
 
-
 /*images on main page*/
 .content .imageDiv { 
 	-webkit-flex-basis: 40%;
 			flex-basis: 40%;
-	background-image: url(../img/img.jpg);
+	background-image: url(../img/stub_img.jpg);
 	background-size: cover;
 	background-position: center;
 	height: 200px;
