@@ -368,11 +368,30 @@ article ul {
 	background-position: top;
 	height: 400px;
 	max-width: 400px;
+/*	min-width: 250px;
+	flex-basis: 38%;*/
+	margin-right: 10px;
+}
+
+#successImg2 {
+	background-image: url(../img/about_img2.jpg);	
+	background-position: top;
+	height: 400px;
+	max-width: 550px;
+/*	min-width: 250px;
+	flex-basis: 59%;*/
 }
 
 #successMap {
 	background-image: url(../img/map_success.png);
 }
+
+.imagesFlex {
+	display: flex;
+	flex-wrap: wrap;
+	align-content: flex-start;
+}
+
 
 /*images on main page*/
 .content .imageDiv { 

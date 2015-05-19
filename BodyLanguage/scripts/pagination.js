@@ -72,8 +72,9 @@ function loadNewsByPage(page) {
 function createNew(newObj) {
 	// convert data to day.month.year format
 	var date = new Date(newObj.date_create).toLocaleDateString();
+	var imgPath = newObj.image || 'img/stub_img.jpg';
 	var newNew = $('<div class="block">\
-	 		<div class="imageDiv" style="background-image: url(' + newObj.image + ')"></div>\
+	 		<div class="imageDiv" style="background-image: url(' + imgPath + ')"></div>\
 			<article>\
 				<h3 class="link"><a href="news/' + newObj.id + '">' + newObj.title + '</a></h3>\
 				<p class="shortText">' + newObj.description+ '</p>\

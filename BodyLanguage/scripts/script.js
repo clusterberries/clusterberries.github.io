@@ -83,10 +83,6 @@ $(document).ready(function(){
     // click back or forward on browzer
     $(window).on('popstate', function() {
       	history.location = location.href;
-
-        // if we are on page with news load news
-        // if (location.pathname === '/news.html') loadNews();
-        //TODO do we need this?
     });
 
     // click signin/singup button
@@ -134,10 +130,6 @@ $(document).ready(function(){
         $('.comments form textarea').attr('rows', 1);
         $('.comments .form .button').css('display', 'none');
     });
-
-
-        
-
 
 });  
 
