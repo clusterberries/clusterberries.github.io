@@ -9,6 +9,8 @@ $(document).ready(function(){
 	// get object Location
 	var location = window.history.location || window.location;
 
+    if (window.location.pathname === '/news.html') loadNews();
+
     // if the height of the page is small fix the footer to bottom
     if ($(document.body).height() < $(window).height()) {
         $('footer').addClass('down');
@@ -16,8 +18,11 @@ $(document).ready(function(){
 
 	// click on navigation items
     $('.link a').click(function(e) {  
+        var pathname;
     	// if click on the same link do nothing
     	if (history.location.href === this.href) {e.preventDefault(); return;}
+
+        pathname = this.pathname;
 
         setLoadingAnimation();
 
@@ -25,7 +30,7 @@ $(document).ready(function(){
         history.pushState(null, null, this.href); 
 
         $.ajax({  
-            url: ".." + this.pathname, 
+            url: ".." + pathname, 
             success: function(html) {  
 
             	closeLoadingAnimation();
@@ -42,6 +47,11 @@ $(document).ready(function(){
                     }
                     else {
                         $('footer').removeClass('down');
+                    }
+
+                    // if we are on page with news load news
+                    if (pathname === '/news.html') {
+                        loadNews();
                     }
 
                     // show page
@@ -73,6 +83,10 @@ $(document).ready(function(){
     // click back or forward on browzer
     $(window).on('popstate', function() {
       	history.location = location.href;
+
+        // if we are on page with news load news
+        // if (location.pathname === '/news.html') loadNews();
+        //TODO do we need this?
     });
 
     // click signin/singup button
@@ -110,18 +124,26 @@ $(document).ready(function(){
         });
     });
 
-    // 
+    // show form for comment when it is in focus
     $('.comments form textarea').on('focus', function() {
         $('.comments form textarea').attr('rows', 5);
         $('.comments .form .button').css('display', 'block');
     });
+    // hide form for comment when it isnt in focus
     $('.comments form textarea').on('focusout', function() {
         $('.comments form textarea').attr('rows', 1);
         $('.comments .form .button').css('display', 'none');
     });
-            
+
+
+        
+
+
 });  
 
+
+
+/*** FUNCTIONS ***/
 
 // hide upper layout with form or image
 function hide(event) {

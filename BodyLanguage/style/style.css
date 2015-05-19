@@ -236,11 +236,11 @@ nav .signIn {
 }
 
 .icon:hover {
-	-webkit-animation: move 0.5s infinite;
-	   -moz-animation: move 0.5s infinite;
-		-ms-animation: move 0.5s infinite;
-		 -o-animation: move 0.5s infinite;
-			animation: move 0.5s infinite;
+	-webkit-animation: move 0.5s;
+	   -moz-animation: move 0.5s;
+		-ms-animation: move 0.5s;
+		 -o-animation: move 0.5s;
+			animation: move 0.5s;
 }
 
 .result:nth-child(2) .icon {
