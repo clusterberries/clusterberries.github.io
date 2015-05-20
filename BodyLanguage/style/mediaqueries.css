@@ -120,6 +120,7 @@
 	}
 	.content div:nth-child(2) p.shortText {
 		-webkit-line-clamp: 5;
+		height: 60px;
 	}
 	#descriptionImg {
 		height: 330px;

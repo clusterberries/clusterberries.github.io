@@ -133,6 +133,7 @@ h3 {
 	font-size: 1.4rem;
 	margin-bottom: 7px;
 	color: #972622;
+	padding-bottom: 5px;
 }
 
 h4 {
@@ -300,10 +301,11 @@ nav .signIn {
 .content p.shortText {
 	display: block;
 	display: -webkit-box;
-	-webkit-line-clamp: 5; /*line-clamp works only in webkits :( */
+	-webkit-line-clamp: 3; /*line-clamp works only in webkits :( */
 	-webkit-box-orient: vertical;
 	overflow: hidden;
 	text-overflow: ellipsis;
+	height: 60px;
 }
 
 .content div:nth-child(2) article{
@@ -312,7 +314,8 @@ nav .signIn {
 	height: 350px;
 }
 .content div:nth-child(2) p.shortText {
-	-webkit-line-clamp: 12;
+	-webkit-line-clamp: 9;
+	height: 184px;
 }
 
 .content article p.date {

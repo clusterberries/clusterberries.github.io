@@ -2,24 +2,29 @@ var newsCount, pagesCount;
 
 // main function to load news
 function loadNews() {
+	console.log('мы в loadNews, ща будем грузить');
 	$.post('getNewsLength', function(data) {
 		// parse response
 	    newsCount = parseInt(JSON.parse(data).count);
+	    console.log('загрузили количество новостей: ' + newsCount);
 
 	    pagesCount = Math.ceil(newsCount / 5);
 
 	    // set pagination if the count of news is more than 5
 	    if (newsCount > 5) {
+	    	console.log('Ща будем гурзить пагинацию, если новостей больше 5');
 		    $('.content').after(setPagination(newsCount));
 		    setHandlersOnPagination();
 		}
 		// first load the first 5 news (or less)
+		console.log('сейчас будет первая загрузка новостей');
 		loadNewsByPage(1);
 	});
 }
 
 // set pagination if necessary
 function setPagination(newsCount) {
+	console.log('Мы в setPagination');
     var numbers, number;
     if (newsCount > 5) {
         numbers = $('<div class="pagination"><ul>\
@@ -40,6 +45,7 @@ function setPagination(newsCount) {
 
 // load new news
 function loadNewsByPage(page) {
+	console.log('мы в loadNewsByPage');
 	var first,	// the first new that will be loaded
 		lim, 	// the count of news that will be loaded
 		news;	// array of news
@@ -50,8 +56,9 @@ function loadNewsByPage(page) {
 		lim += first;
 		first = 0;
 	}
-
+	console.log('Всё посчитали: offset ' + first + ', limit ' + lim);
 	$.post('getNews', { offset: first, limit: lim}, function(data) {
+		console.log('Грузим джейсона!');
 		// parse response with data
 		news = JSON.parse(data);
 
@@ -62,6 +69,7 @@ function loadNewsByPage(page) {
 
 		// create news and append it to the content div
 		for (var i = 0; i < news.length; ++i) {
+			console.log('сйчас создадим новость ' + i);
 			$('.content').append(createNew(news[i]));
 		}
 	    
@@ -70,6 +78,7 @@ function loadNewsByPage(page) {
 
 // create a piace of news
 function createNew(newObj) {
+	console.log('мы в createNew');
 	// convert data to day.month.year format
 	var date = new Date(newObj.date_create).toLocaleDateString();
 	var imgPath = newObj.image || 'img/stub_img.jpg';
@@ -85,6 +94,7 @@ function createNew(newObj) {
 
 // set handlers to numbers, prev and next
 function setHandlersOnPagination() {
+	console.log('мы в setHandlersOnPagination');
 	$('.pageNumber').on('click', function(event) {
 		var num = parseInt(event.target.id.slice(4));
 		loadNewsByPage(num);

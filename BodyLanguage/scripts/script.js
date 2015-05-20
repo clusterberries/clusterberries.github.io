@@ -9,7 +9,10 @@ $(document).ready(function(){
 	// get object Location
 	var location = window.history.location || window.location;
 
-    if (window.location.pathname === '/news.html') loadNews();
+    if (window.location.pathname === '/news.html') {
+        console.log('загрузилась страница с новостями полностью');
+        loadNews();
+    }
 
     // if the height of the page is small fix the footer to bottom
     if ($(document.body).height() < $(window).height()) {
@@ -51,6 +54,7 @@ $(document).ready(function(){
 
                     // if we are on page with news load news
                     if (pathname === '/news.html') {
+                        console.log('аяксово перешли на страницу с новостями');
                         loadNews();
                     }
 
