@@ -53,7 +53,7 @@ $(document).ready(function(){
                     }
 
                     // if we are on page with news load news
-                    if (pathname === '/news.html') {
+                    if (pathname.indexOf('news') !== -1) {
                         console.log('аяксово перешли на страницу с новостями');
                         loadNews();
                     }
