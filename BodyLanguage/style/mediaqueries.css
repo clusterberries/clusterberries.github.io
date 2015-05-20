@@ -23,6 +23,7 @@
 	.upperHeader {
 		display: -webkit-flex;
 		display: 		 flex;
+		-webkit-box-orient: horizontal;
 		-webkit-flex-direction: row;
 				flex-direction: row;
 	}
@@ -59,6 +60,7 @@
 	}
 
 	footer ul {
+		-webkit-box-orient: vertical;
 		-webkit-flex-direction: column;
 				flex-direction: column;
 	}
@@ -82,6 +84,7 @@
 	}
 
 	.resultsDiv {
+		-webkit-box-orient: vertical;
 		-webkit-flex-direction: column;
 				flex-direction: column;
 		-webkit-align-items: center;
@@ -94,6 +97,7 @@
 		max-width: 400px;
 	}
 	.content .block {
+		-webkit-box-orient: vertical;
 		-webkit-flex-direction: column;
 				flex-direction: column;
 	}
