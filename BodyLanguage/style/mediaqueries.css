@@ -21,6 +21,8 @@
 		width: 90%;
 	}
 	.upperHeader {
+		display: -webkit-box;
+		display:		 box;
 		display: -webkit-flex;
 		display: 		 flex;
 		-webkit-box-orient: horizontal;

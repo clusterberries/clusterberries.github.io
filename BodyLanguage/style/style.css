@@ -15,9 +15,11 @@
 /* Flex */
 
 main {
+	display: -webkit-box;
+	display:		 box;
+	-webkit-box-orient: vertical;
 	display: -webkit-flex;
 	display: 		 flex;
-	-webkit-box-orient: vertical;
 	-webkit-flex-direction: column;
 			flex-direction: column;
 	-webkit-align-items: center;
@@ -26,6 +28,8 @@ main {
 }
 
 .headerDiv, .resultsDiv, .content, footer ul {
+	display: -webkit-box;
+	display:		 box;
 	display: -webkit-flex;
 	display: 		 flex;
 	max-width: 1000px;
@@ -51,6 +55,8 @@ main {
 }
 
 .content .block, header div {
+	display: -webkit-box;
+	display:		 box;
 	display: -webkit-flex;
 	display: 		 flex;
 	-webkit-justify-content: space-between;
@@ -58,6 +64,8 @@ main {
 }
 
 .content article {
+	display: -webkit-box;
+	display:		 box;
 	display: -webkit-flex;
 	display: 		 flex;
 	-webkit-box-orient: vertical;
@@ -69,6 +77,8 @@ main {
 
 
 .imagesFlex {
+	display: -webkit-box;
+	display:		 box;
 	display: -webkit-flex;
 	display: 		 flex;
 	-webkit-flex-wrap: wrap;
@@ -234,6 +244,8 @@ nav .signIn {
 }
 
 .result {
+	display: -webkit-box;
+	display:		 box;
 	display: -webkit-flex;
 	display: 		 flex;
 	-webkit-box-orient: vertical;
@@ -468,6 +480,8 @@ article ul {
 }
 
 .containerDiv {
+	display: -webkit-box;
+	display:		 box;
 	display: -webkit-flex;
 	display: 		 flex;
 	-webkit-justify-content: center;
