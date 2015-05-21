@@ -2,7 +2,7 @@ var newsCount, pagesCount;
 
 // main function to load news
 function loadNews() {
-	console.log('мы в loadNews, ща будем грузить');
+	setLoadingAnimation();
 
 	$.ajax({  
         url: 'getNewsLength' 
@@ -26,6 +26,7 @@ function loadNews() {
 	})
 	.fail(function() {
 	    console.log("error in loadNews");
+	    closeLoadingAnimation();
 	});
 
 }
@@ -71,10 +72,6 @@ function loadNewsByPage(page) {
 		dataType: 'json'
 	})
 	.done(function(data) {
-		console.log('Грузим новости!');
-		// parse response with data
-		//news = JSON.parse(data);
-
 		// remove old blocks with news
 		$('.block').fadeOut(200, function () {
 			this.remove();
@@ -84,10 +81,12 @@ function loadNewsByPage(page) {
 		for (var i = 0; i < data.length; ++i) {
 			console.log('сейчас создадим новость ' + i);
 			$('.content').append(createNew(data[i]));
-		}	    
+		}	
+		closeLoadingAnimation();    
 	})
 	.fail(function() {
 		console.log('error in loadNewsByPage');
+		closeLoadingAnimation();
 	});
 
 }
@@ -111,6 +110,8 @@ function createNew(newObj) {
 // set handlers to numbers, prev and next
 function setHandlersOnPagination() {
 	$('.pageNumber').on('click', function(event) {
+		setLoadingAnimation();
+
 		var num = parseInt(event.target.id.slice(4));
 		loadNewsByPage(num);
 		setCurrents(num);
@@ -119,6 +120,8 @@ function setHandlersOnPagination() {
 	});
 
 	$('#prev').on('click', function(event) {
+		setLoadingAnimation();
+
 		// get current number of page
 		var currentNum = parseInt($('.pageNumber.current').attr('id').slice(4));
 		var newNum = currentNum - 1;
@@ -131,6 +134,8 @@ function setHandlersOnPagination() {
 	});
 
 	$('#next').on('click', function(event) {
+		setLoadingAnimation();
+		
 		// get current number of page
 		var currentNum = parseInt($('.pageNumber.current').attr('id').slice(4));
 		var newNum = currentNum + 1;

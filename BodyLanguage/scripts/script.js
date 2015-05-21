@@ -10,7 +10,6 @@ $(document).ready(function(){
 	var location = window.history.location || window.location;
 
     if (window.location.pathname.indexOf('news') !== -1) {
-        console.log('загрузилась страница с новостями полностью');
         loadNews();
     }
 
@@ -54,9 +53,7 @@ $(document).ready(function(){
 
                     // if we are on page with news load news
                     if (pathname.indexOf('news') !== -1) {
-                        console.log('аяксово перешли на страницу с новостями');
                         loadNews();
-                        console.log('loadNews закончился');
                     }
 
                     // show page
