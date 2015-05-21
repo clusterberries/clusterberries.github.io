@@ -10,22 +10,19 @@ function loadNews() {
 	.done(function(data) {
 	    // parse response
 	    newsCount = parseInt(data.count);
-	    console.log('загрузили количество новостей: ' + newsCount);
 
 	    pagesCount = Math.ceil(newsCount / 5);
 
 	    // set pagination if the count of news is more than 5
 	    if (newsCount > 5) {
-	    	console.log('Ща будем гурзить пагинацию, если новостей больше 5');
 		    $('.content').after(setPagination(newsCount));
 		    setHandlersOnPagination();
 		}
 		// first load the first 5 news (or less)
-		console.log('сейчас будет первая загрузка новостей');
 		loadNewsByPage(1);
 	})
 	.fail(function() {
-	    console.log("error in loadNews");
+		console.log('error in loadNews');
 	    closeLoadingAnimation();
 	});
 
@@ -63,8 +60,6 @@ function loadNewsByPage(page) {
 		lim += first;
 		first = 0;
 	}
-	console.log('Всё посчитали: offset ' + first + ', limit ' + lim);
-
 
 	$.ajax({
 		url: 'getNews', 
@@ -79,7 +74,6 @@ function loadNewsByPage(page) {
 
 		// create news and append it to the content div
 		for (var i = 0; i < data.length; ++i) {
-			console.log('сейчас создадим новость ' + i);
 			$('.content').append(createNew(data[i]));
 		}	
 		closeLoadingAnimation();    
@@ -93,7 +87,6 @@ function loadNewsByPage(page) {
 
 // create a piace of news
 function createNew(newObj) {
-	console.log('мы в createNew');
 	// convert data to day.month.year format
 	var date = new Date(newObj.date_create).toLocaleDateString();
 	var imgPath = newObj.image || 'img/stub_img.jpg';
@@ -135,7 +128,7 @@ function setHandlersOnPagination() {
 
 	$('#next').on('click', function(event) {
 		setLoadingAnimation();
-		
+
 		// get current number of page
 		var currentNum = parseInt($('.pageNumber.current').attr('id').slice(4));
 		var newNum = currentNum + 1;
