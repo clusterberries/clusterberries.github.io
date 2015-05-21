@@ -5,7 +5,7 @@ function loadNews() {
 	console.log('мы в loadNews, ща будем грузить');
 
 	$.ajax({  
-            url: 'getNewsLength' 
+        url: 'getNewsLength' 
 	})
 	.done(function(data) {
 	    // parse response
@@ -32,7 +32,6 @@ function loadNews() {
 
 // set pagination if necessary
 function setPagination(newsCount) {
-	console.log('Мы в setPagination');
     var numbers, number;
     if (newsCount > 5) {
         numbers = $('<div class="pagination"><ul>\
@@ -53,7 +52,6 @@ function setPagination(newsCount) {
 
 // load new news
 function loadNewsByPage(page) {
-	console.log('мы в loadNewsByPage');
 	var first,	// the first new that will be loaded
 		lim, 	// the count of news that will be loaded
 		news;	// array of news
@@ -73,9 +71,9 @@ function loadNewsByPage(page) {
 		dataType: 'json'
 	})
 	.done(function(data) {
-		console.log('Грузим джейсона!');
+		console.log('Грузим новости!');
 		// parse response with data
-		news = JSON.parse(data);
+		//news = JSON.parse(data);
 
 		// remove old blocks with news
 		$('.block').fadeOut(200, function () {
@@ -83,32 +81,15 @@ function loadNewsByPage(page) {
 		});
 
 		// create news and append it to the content div
-		for (var i = 0; i < news.length; ++i) {
-			console.log('сйчас создадим новость ' + i);
-			$('.content').append(createNew(news[i]));
+		for (var i = 0; i < data.length; ++i) {
+			console.log('сейчас создадим новость ' + i);
+			$('.content').append(createNew(data[i]));
 		}	    
 	})
 	.fail(function() {
 		console.log('error in loadNewsByPage');
 	});
 
-/*	$.post('getNews', { offset: first, limit: lim}, function(data) {
-		console.log('Грузим джейсона!');
-		// parse response with data
-		news = JSON.parse(data);
-
-		// remove old blocks with news
-		$('.block').fadeOut(200, function () {
-			this.remove();
-		});
-
-		// create news and append it to the content div
-		for (var i = 0; i < news.length; ++i) {
-			console.log('сйчас создадим новость ' + i);
-			$('.content').append(createNew(news[i]));
-		}
-	    
-	}, 'json');*/
 }
 
 // create a piace of news
@@ -129,7 +110,6 @@ function createNew(newObj) {
 
 // set handlers to numbers, prev and next
 function setHandlersOnPagination() {
-	console.log('мы в setHandlersOnPagination');
 	$('.pageNumber').on('click', function(event) {
 		var num = parseInt(event.target.id.slice(4));
 		loadNewsByPage(num);
