@@ -9,7 +9,7 @@ $(document).ready(function(){
 	// get object Location
 	var location = window.history.location || window.location;
 
-    if (window.location.pathname === '/news.html') {
+    if (window.location.pathname.indexOf('news') !== -1) {
         console.log('загрузилась страница с новостями полностью');
         loadNews();
     }
@@ -56,6 +56,7 @@ $(document).ready(function(){
                     if (pathname.indexOf('news') !== -1) {
                         console.log('аяксово перешли на страницу с новостями');
                         loadNews();
+                        console.log('loadNews закончился');
                     }
 
                     // show page
@@ -103,7 +104,7 @@ $(document).ready(function(){
             	$('footer').after(el);
             	el.fadeIn();
 
-            	// hide when ckick outside the form
+            	// hide when click outside the form
             	$(document).on('click', hide);
 
             	// handler for registration

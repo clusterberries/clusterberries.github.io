@@ -3,9 +3,13 @@ var newsCount, pagesCount;
 // main function to load news
 function loadNews() {
 	console.log('мы в loadNews, ща будем грузить');
-	$.post('getNewsLength', function(data) {
-		// parse response
-	    newsCount = parseInt(JSON.parse(data).count);
+
+	$.ajax({  
+            url: 'getNewsLength' 
+	})
+	.done(function(data) {
+	    // parse response
+	    newsCount = parseInt(data.count);
 	    console.log('загрузили количество новостей: ' + newsCount);
 
 	    pagesCount = Math.ceil(newsCount / 5);
@@ -19,7 +23,11 @@ function loadNews() {
 		// first load the first 5 news (or less)
 		console.log('сейчас будет первая загрузка новостей');
 		loadNewsByPage(1);
+	})
+	.fail(function() {
+	    console.log("error in loadNews");
 	});
+
 }
 
 // set pagination if necessary
@@ -57,7 +65,34 @@ function loadNewsByPage(page) {
 		first = 0;
 	}
 	console.log('Всё посчитали: offset ' + first + ', limit ' + lim);
-	$.post('getNews', { offset: first, limit: lim}, function(data) {
+
+
+	$.ajax({
+		url: 'getNews', 
+		data: { offset: first, limit: lim},
+		dataType: 'json'
+	})
+	.done(function(data) {
+		console.log('Грузим джейсона!');
+		// parse response with data
+		news = JSON.parse(data);
+
+		// remove old blocks with news
+		$('.block').fadeOut(200, function () {
+			this.remove();
+		});
+
+		// create news and append it to the content div
+		for (var i = 0; i < news.length; ++i) {
+			console.log('сйчас создадим новость ' + i);
+			$('.content').append(createNew(news[i]));
+		}	    
+	})
+	.fail(function() {
+		console.log('error in loadNewsByPage');
+	});
+
+/*	$.post('getNews', { offset: first, limit: lim}, function(data) {
 		console.log('Грузим джейсона!');
 		// parse response with data
 		news = JSON.parse(data);
@@ -73,7 +108,7 @@ function loadNewsByPage(page) {
 			$('.content').append(createNew(news[i]));
 		}
 	    
-	}, 'json');
+	}, 'json');*/
 }
 
 // create a piace of news
