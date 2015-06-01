@@ -12,10 +12,11 @@ $(document).ready(function(){
     if (window.location.pathname.indexOf('news') !== -1) {
         loadNews();
     }
-
-    // if the height of the page is small fix the footer to bottom
-    if ($(document.body).height() < $(window).height()) {
-        $('footer').addClass('down');
+    else {
+        // if the height of the page is small fix the footer to bottom
+        if ($(document.body).height() < $(window).height()) {
+            $('footer').addClass('down');
+        }
     }
 
 	// click on navigation items
@@ -43,18 +44,20 @@ $(document).ready(function(){
 	            	var content = $(html).filter('main').children();
 	           		$('main').empty().wrapInner(content);
 
-                    // if the height of the page is small fix the footer to bottom
-                    if ($(document.body).height() + $('main').height() < $(window).height()) {
-                        $('footer').addClass('down');
-                    }
-                    else {
-                        $('footer').removeClass('down');
-                    }
-
                     // if we are on page with news load news
                     if (pathname.indexOf('news') !== -1) {
                         loadNews();
                     }
+                    else {
+                        // if the height of the page is small fix the footer to bottom
+                        if ($(document.body).height() + $('main').height() < $(window).height()) {
+                            $('footer').addClass('down');
+                        }
+                        else {
+                            $('footer').removeClass('down');
+                        }
+                    }
+
 
                     // show page
                     $('main').fadeIn(200, function() {
@@ -160,6 +163,7 @@ function hide(event) {
 
 // create and show animation
 function setLoadingAnimation() {
+    /*jshint multistr: true */
 	var balls = $('\
 		<div class="containerDiv"><div id="ballsWave">\
 			<div id="ballsWave_1" class="ballsWave"></div>\

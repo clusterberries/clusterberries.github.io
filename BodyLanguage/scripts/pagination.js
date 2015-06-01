@@ -25,13 +25,13 @@ function loadNews() {
 		console.log('error in loadNews');
 	    closeLoadingAnimation();
 	});
-
 }
 
 // set pagination if necessary
 function setPagination(newsCount) {
     var numbers, number;
     if (newsCount > 5) {
+    	/*jshint multistr: true */
         numbers = $('<div class="pagination"><ul>\
                 <li id="prev" class="prevnext current">«</li>\
                 <li class="pageNumber current" id="page1">1<li>\
@@ -76,7 +76,15 @@ function loadNewsByPage(page) {
 		for (var i = 0; i < data.length; ++i) {
 			$('.content').append(createNew(data[i]));
 		}	
-		closeLoadingAnimation();    
+		closeLoadingAnimation(); 
+
+		// if the height of the page is small fix the footer to bottom
+        if ($(document.body).height() < $(window).height()) {
+            $('footer').addClass('down');
+        } 
+        else {
+            $('footer').removeClass('down');
+        }  
 	})
 	.fail(function() {
 		console.log('error in loadNewsByPage');
@@ -90,6 +98,7 @@ function createNew(newObj) {
 	// convert data to day.month.year format
 	var date = new Date(newObj.date_create).toLocaleDateString();
 	var imgPath = newObj.image || 'img/stub_img.jpg';
+	/*jshint multistr: true */
 	var newNew = $('<div class="block">\
 	 		<div class="imageDiv" style="background-image: url(' + imgPath + ')"></div>\
 			<article>\
