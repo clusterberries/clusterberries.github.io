@@ -23,19 +23,19 @@ function imageOpenHandler(event) {
     $('.container').after(el);
     $(el[0]).fadeIn(200);
     $(el[1]).fadeIn(200, function() {
-        $('.containerDiv img').after(calculateX()); 
+        // $('.containerDiv img').after(calculateX()); 
         // hide when ckick outside the form
         $(document).on('click', hide); 
         // hide when ckick on 'x'
-        $('.closeImg').on('click', hide);       
+        // $('.closeImg').on('click', hide);       
     });   
 }
 
 // hide upper layout with form or image
 function hide(event) {
     // when click on the the form or image do nothing
-	if ($(event.target).closest('.upper').length !== 0) return;
-	else {
+	// if ($(event.target).closest('.upper').length !== 0) return;
+	// else {
         // fade out and remove elements
 		$('.background').fadeOut(200, function() {
 			this.remove();
@@ -46,13 +46,13 @@ function hide(event) {
 
         // remove handrels for closing
 		$(document).off('click', hide); 
-	}
+	// }
 }
 
 // calculate position of the closing 'x' for image
-function calculateX() {
-    // get top and right sides of the image and set it to the 'x'
-    var top = document.querySelector('img.upper').offsetTop;
-    var right = $(window).width() / 2 - $('img.upper').width() / 2;
-    return '<span class="closeImg" style="top: ' + top + 'px; right: ' + right + 'px"><i class="fa fa-times"></i></span>';        
-}
+// function calculateX() {
+//     // get top and right sides of the image and set it to the 'x'
+//     var top = document.querySelector('img.upper').offsetTop;
+//     var right = $(window).width() / 2 - $('img.upper').width() / 2;
+//     return '<span class="closeImg" style="top: ' + top + 'px; right: ' + right + 'px"><i class="fa fa-times"></i></span>';        
+// }
