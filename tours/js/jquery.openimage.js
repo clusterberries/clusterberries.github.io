@@ -14,6 +14,8 @@ function imageOpenHandler(event) {
     // take out the url to the image from the style
     url = getComputedStyle(event.target).backgroundImage;
     url = url.slice(url.indexOf('(') + 1, url.lastIndexOf('.')) + '_full.png';
+    if (url[0] === '"') url = url.slice(1);
+
     // get url of the image and create the html
 	img = '<img src="' + url + '" class="upper">';
     // create element with background and img
