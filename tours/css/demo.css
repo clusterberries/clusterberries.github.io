@@ -1,0 +1,95 @@
+@import url('reset.css');
+
+/* General Demo Style */
+body{
+	background:#282C40 url(../images/pattern2.png) repeat top left;
+	color:#000;
+	font-family: 'PT Sans Narrow', Arial, sans-serif;
+	font-size:12px;
+}
+a{
+	color:#000;
+	text-decoration:none;
+}
+.clr{
+	clear:both;
+}
+h1, h5{
+	margin:15px;
+	margin-top: 30px;
+	font-size:44px;
+	color:#fff;
+	font-family: 'Comfortaa', sans-serif;
+	text-align:center;
+}
+h5 {
+	font-size: 20px;
+  	display: block;
+  	color: #fff;
+  	opacity: 0.5;
+}
+
+
+
+.imageOpen {
+	background-position: center;
+	background-size: cover;
+	cursor: pointer;
+	transition: 0.2s;
+	margin-bottom: 20px;
+}
+.imageOpen:hover {
+	opacity: 0.8;
+}
+
+.background {
+	width: 100%;
+	height: 100%;	
+	top: 0;
+	left: 0;
+	background-color: #000;
+	opacity: 0.7;
+	position: fixed;
+	z-index: 1001;
+}
+
+.containerDiv {
+	display: -webkit-box;
+	display:		 box;
+	display: -webkit-flex;
+	display: 		 flex;
+	-webkit-justify-content: center;
+			justify-content: center;
+	-webkit-align-items: center;
+			align-items: center;
+	width: 100%;
+	height: 100%;
+	position: fixed;	
+	top: 0;
+	left: 0;
+	z-index: 1002;
+}
+
+/*full image*/
+.containerDiv img {
+	max-height: 90%;
+	max-width: 90%;
+	margin: 30px;
+}
+
+/*x for image*/
+.containerDiv .closeImg {
+	background-color: #000;
+	position: absolute;
+	opacity: 0.1;
+	transition: 0.2s;
+}
+.containerDiv .closeImg:hover {
+	opacity: 0.6;
+	cursor: pointer;
+}
+.containerDiv .fa-times {
+	color: #fff;
+	font-size: 2rem;
+	padding: 1px 5px;
+}
