@@ -37,7 +37,7 @@ Game.prototype.resume = function () {
 };
 
 Game.prototype._start = function () {
-	var result;
+	var result, score;
 	this.interval = window.setInterval(function () { // TODO bind(this)?
 		this.snake.move();
 		this.canChangeDirection = true;
@@ -47,7 +47,8 @@ Game.prototype._start = function () {
 		}
 		else if (result > 0) {
 			this.snake.eat();
-			this.scoreContainer.innerText++;// = ++this.score;
+			score = +this.scoreContainer.textContent;
+			this.scoreContainer.textContent = ++score;
 		}
 	}.bind(this), this.settings.speed);
 	document.addEventListener('keydown',  this.keydownHandler);
