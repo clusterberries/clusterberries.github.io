@@ -1,0 +1,220 @@
+body, html, p, button {
+	margin: 0;
+	padding: 0;
+	font-family: sans-serif;
+}
+
+body, html {
+	height: 100%;
+}
+
+body {
+	background-color: #1c0b83;
+}
+
+header {
+	background-color: #654cff;
+	color: #fff;
+	height: 30px;
+    padding: 21px;
+}
+
+header .buttons {
+	float: right;
+}
+
+header .score {
+	/*padding-top: 3px;*/
+	margin-left: 10px;
+	font-size: 20px;
+}
+
+button {
+	padding: 5px 10px;
+    background-color: #fff;
+    border: none;
+    font-size: 16px;
+    margin-right: 10px;
+}
+
+table {
+	width: 100%;
+	height: calc(100% - 72px);
+	border-spacing: 0;
+}
+
+td {
+	border: none;
+}
+
+.snake {
+	background: linear-gradient(to bottom, #ff0e16 16.7%, 
+		#ffaa09 16.7%, #ffaa09 33.3%, 
+		#feff01 33.3%, #feff01 50%, 
+		#3ffe01 50%, #3ffe01 66.7%, 
+		#0faaff 66.7%, #0faaff 83.3%, 
+		#654cff 83.3%); 
+}
+.snakeT {
+	background: linear-gradient(to right, #ff0e16 16.7%, 
+		#ffaa09 16.7%, #ffaa09 33.3%, 
+		#feff01 33.3%, #feff01 50%, 
+		#3ffe01 50%, #3ffe01 66.7%, 
+		#0faaff 66.7%, #0faaff 83.3%, 
+		#654cff 83.3%); 
+}
+.snakeL {
+	background: linear-gradient(to top, #ff0e16 16.7%, 
+		#ffaa09 16.7%, #ffaa09 33.3%, 
+		#feff01 33.3%, #feff01 50%, 
+		#3ffe01 50%, #3ffe01 66.7%, 
+		#0faaff 66.7%, #0faaff 83.3%, 
+		#654cff 83.3%); 
+}
+.snakeB {
+	background: linear-gradient(to left, #ff0e16 16.7%, 
+		#ffaa09 16.7%, #ffaa09 33.3%, 
+		#feff01 33.3%, #feff01 50%, 
+		#3ffe01 50%, #3ffe01 66.7%, 
+		#0faaff 66.7%, #0faaff 83.3%, 
+		#654cff 83.3%); 
+}
+
+/*** gradient for corners ***/
+.snakeCornerRB {
+	background: linear-gradient(to right bottom, rgba(0, 0, 0, 0) 50%,
+		#ff0e16 50%, #ff0e16 58.3%,
+		#ffaa09 58.3%, #ffaa09 66.7%, 
+		#feff01 66.7%, #feff01 75%, 
+		#3ffe01 75%, #3ffe01 83.3%, 
+		#0faaff 83.3%, #0faaff 91.7%, 
+		#654cff 91.7%); 
+}
+.snakeCornerRT {
+	background: linear-gradient(to right top, rgba(0, 0, 0, 0) 50%,
+		#ff0e16 50%, #ff0e16 58.3%,
+		#ffaa09 58.3%, #ffaa09 66.7%, 
+		#feff01 66.7%, #feff01 75%, 
+		#3ffe01 75%, #3ffe01 83.3%, 
+		#0faaff 83.3%, #0faaff 91.7%, 
+		#654cff 91.7%);  
+}
+.snakeCornerLB {
+	background: linear-gradient(to left bottom, rgba(0, 0, 0, 0) 50%,
+		#ff0e16 50%, #ff0e16 58.3%,
+		#ffaa09 58.3%, #ffaa09 66.7%, 
+		#feff01 66.7%, #feff01 75%, 
+		#3ffe01 75%, #3ffe01 83.3%, 
+		#0faaff 83.3%, #0faaff 91.7%, 
+		#654cff 91.7%);  
+}
+.snakeCornerLT {
+	background: linear-gradient(to left top, rgba(0, 0, 0, 0) 50%,
+		#ff0e16 50%, #ff0e16 58.3%,
+		#ffaa09 58.3%, #ffaa09 66.7%, 
+		#feff01 66.7%, #feff01 75%, 
+		#3ffe01 75%, #3ffe01 83.3%, 
+		#0faaff 83.3%, #0faaff 91.7%, 
+		#654cff 91.7%);   
+}
+
+.snakeCornerRotateRB {
+	background: linear-gradient(to right bottom, rgba(0, 0, 0, 0) 50%,
+		#654cff 50%, #654cff 58.3%,
+		#0faaff 58.3%, #0faaff 66.7%, 
+		#3ffe01 66.7%, #3ffe01 75%, 
+		#feff01 75%, #feff01 83.3%, 
+		#ffaa09 83.3%, #ffaa09 91.7%, 
+		#ff0e16 91.7%); 
+}
+.snakeCornerRotateRT {
+	background: linear-gradient(to right top, rgba(0, 0, 0, 0) 50%,
+		#654cff 50%, #654cff 58.3%,
+		#0faaff 58.3%, #0faaff 66.7%, 
+		#3ffe01 66.7%, #3ffe01 75%, 
+		#feff01 75%, #feff01 83.3%, 
+		#ffaa09 83.3%, #ffaa09 91.7%, 
+		#ff0e16 91.7%); 
+}
+.snakeCornerRotateLB {
+	background: linear-gradient(to left bottom, rgba(0, 0, 0, 0) 50%,
+		#654cff 50%, #654cff 58.3%,
+		#0faaff 58.3%, #0faaff 66.7%, 
+		#3ffe01 66.7%, #3ffe01 75%, 
+		#feff01 75%, #feff01 83.3%, 
+		#ffaa09 83.3%, #ffaa09 91.7%, 
+		#ff0e16 91.7%);  
+}
+.snakeCornerRotateLT {
+	background: linear-gradient(to left top, rgba(0, 0, 0, 0) 50%,
+		#654cff 50%, #654cff 58.3%,
+		#0faaff 58.3%, #0faaff 66.7%, 
+		#3ffe01 66.7%, #3ffe01 75%, 
+		#feff01 75%, #feff01 83.3%, 
+		#ffaa09 83.3%, #ffaa09 91.7%, 
+		#ff0e16 91.7%); 
+}
+
+.head {
+	background-image: url(./kitty.png);
+}
+.headL {
+	background-image: url(./kittyLeft.png);
+}
+.headT {
+	background-image: url(./kittyTop.png);
+}
+.headB {
+	background-image: url(./kittyBottom.png);
+}
+.food {
+	background-image: url(./unicorn2.png);
+}
+.head, .headL, .headT, .headB, .food {
+	background-repeat: no-repeat;
+	background-size: 100% 100%;	
+}
+
+.back {
+	position: fixed;
+	top: 0;
+	left: 0;
+	background-color: rgba(249, 210, 228, 0.5);
+	color: #fff;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+    align-items: center;
+	font-size: 30px;
+}
+
+.back button {
+	margin-top: 20px;
+}
+
+.not-display {
+	display: none;
+}
+
+.settings {
+	background-color: #654cff;
+	font-size: 16px;
+	padding-bottom: 10px;
+}
+
+.settings p {
+	padding: 5px 20px 10px 20px;
+}
+
+p.popupHeader {
+	padding: 20px;
+	background-color: #1c0b83;
+	font-size: 20px;
+	margin-bottom: 10px;
+}
+
+.gameOver {
+	color: #1c0b83;
+}

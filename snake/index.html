@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Nyan Kitty</title>
+	<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+	<header id="header">
+		<p class="buttons">
+			<button id="startButton">Start new game</button>
+			<button id="settingsButton">Settings</button>
+		</p>
+		<p class="score"> 
+			Score: <span id="score">0</span>
+		</p>		
+	</header>
+
+	<table id="canvas"></table>
+
+	<div class="back not-display" id="settingsContainer">
+		<div class="settings"> 
+			<p class="popupHeader">Settings</p>
+			<p>
+				<input type="checkbox" id="withBorders">
+				<label for="withBorders">Consider window borders</label>
+			</p>
+			<p>
+				<label>Scale:</label><br>
+				<input type="radio" name="scale" value="1"> Small<br>
+				<input type="radio" name="scale" value="2" checked>	Medium<br>
+				<input type="radio" name="scale" value="3"> Big<br>
+			</p>
+			<p>
+				<label>Level:</label><br>
+				<input type="radio" name="speed" value="3"> Novice<br>
+				<input type="radio" name="speed" value="2" checked>	Amateur<br>
+				<input type="radio" name="speed" value="1"> Expert<br>
+			</p>
+			<p>
+				<button id="cancelSave">Cancel</button>
+				<button id="saveSettings">Save and start new game</button>
+			</p>
+		</div>
+	</div>
+
+	<div class="back gameOver not-display">
+		<p>GAME IS OVER!</p>
+		<button id="gameOverButton">Close</button>
+	</div>
+
+	<script src="./js/Timer.js"></script>
+	<script src="./js/Snake.js"></script>
+	<script src="./js/Food.js"></script>
+	<script src="./js/Canvas.js"></script>
+	<script src="./js/Game.js"></script>
+	<script src="./js/index.js"></script>
+</body>
+</html>
